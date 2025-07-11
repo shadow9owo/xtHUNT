@@ -1,8 +1,9 @@
+#include "globalvars.hpp" 
 #include <iostream>
 #include "raylib.h"
-#include "./Data/globalvars.hpp" 
 #include "ini.hpp"
 #include "Render.hpp"
+#include "Input.hpp"
 
 namespace GAME { extern int run(); }
 
@@ -13,13 +14,25 @@ int main()
 
 namespace GAME
 {
+    RenderTexture2D target;
     int run()
     {
         InitWindow(DATA::Vars::Consts::win[0], DATA::Vars::Consts::win[1], "xthunt");
 
         DATA::Load();
 
-        SetTargetFPS(300);     
+        if (DATA::Vars::isfullscreen)
+        {
+            SetWindowState(FLAG_FULLSCREEN_MODE);
+            SetWindowSize(GetMonitorWidth(0), GetMonitorHeight(0));
+        }
+        else
+        {
+            ClearWindowState(FLAG_FULLSCREEN_MODE);
+            SetWindowSize(DATA::Vars::Consts::win[0], DATA::Vars::Consts::win[1]);
+        }
+
+        SetTargetFPS(300); //cap fps 
 
         SetExitKey(0);
 
@@ -30,7 +43,9 @@ namespace GAME
                 DATA::Vars::running = false;
             }
 
-            BeginDrawing();
+            INPUT::HandleInput();
+
+            BeginTextureMode(target);
 
             Renderer::RenderUI();
 
@@ -38,6 +53,13 @@ namespace GAME
 
             Renderer::RenderWorld();
             
+            EndTextureMode();
+
+            BeginDrawing();
+
+            ClearBackground(BLACK); 
+            DrawTextureRec(target.texture, Rectangle{0, 0, (float)GetScreenWidth(), (float)GetScreenHeight()}, Vector2{0, 0}, WHITE); //fixed aspect ratio
+
             EndDrawing();
         }
 
