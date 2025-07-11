@@ -23,12 +23,12 @@ namespace GAME
 
         if (DATA::Vars::isfullscreen)
         {
-            SetWindowState(FLAG_FULLSCREEN_MODE);
             SetWindowSize(GetMonitorWidth(0), GetMonitorHeight(0));
+            ToggleFullscreen();
         }
         else
         {
-            ClearWindowState(FLAG_FULLSCREEN_MODE);
+            ToggleFullscreen();
             SetWindowSize(DATA::Vars::Consts::win[0], DATA::Vars::Consts::win[1]);
         }
 
