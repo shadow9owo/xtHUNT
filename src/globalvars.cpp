@@ -1,12 +1,15 @@
 #include "globalvars.hpp"
 #include "ini.hpp"
+#include "Types.hpp"
 
 namespace DATA
 {
     namespace Vars
     {
+        bool debug = false;
         bool running = true;
         bool isfullscreen = true;
+        Scenes currentScene = MainMenu; 
 
         namespace Consts //could make a vector2i struct but i am lazy atm
         {

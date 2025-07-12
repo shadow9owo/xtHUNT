@@ -4,22 +4,42 @@
 #include "ini.hpp"
 #include "Render.hpp"
 #include "Input.hpp"
+#include "main.hpp"
+#include "Textures.hpp"
 
 namespace GAME { extern int run(); }
 
-int main()
+int main(int argc, char *argv[])
 {
+    DATA::Load();
+    if (argc > 1)
+    {
+        if (std::string(argv[1]) == "--debug")
+        {
+            DATA::Vars::debug = true;
+            std::cout << "le debugos estest onos >:D (yes this dosesnt have any meaning but its funny to me)" << std::endl; 
+        }
+    }
     GAME::run();
 }
 
 namespace GAME
 {
-    RenderTexture2D target;
+    RenderTexture2D target; // hope the user doesnt change the ini values that will prob fuck up the scaling
     int run()
     {
         InitWindow(DATA::Vars::Consts::win[0], DATA::Vars::Consts::win[1], "xthunt");
+        InitAudioDevice();
+        
+        Textures::Load();
 
-        DATA::Load();
+        Renderer::font = GetFontDefault();
+        target = LoadRenderTexture(DATA::Vars::Consts::win[0], DATA::Vars::Consts::win[1]);
+
+        if (!DATA::Vars::debug) //might be helpful 
+        {
+            HideCursor();
+        }
 
         if (DATA::Vars::isfullscreen)
         {
@@ -28,7 +48,6 @@ namespace GAME
         }
         else
         {
-            ToggleFullscreen();
             SetWindowSize(DATA::Vars::Consts::win[0], DATA::Vars::Consts::win[1]);
         }
 
@@ -47,23 +66,30 @@ namespace GAME
 
             BeginTextureMode(target);
 
-            Renderer::RenderUI();
-
             ClearBackground(BLACK); 
 
             Renderer::RenderWorld();
+
+            Renderer::RenderUI();
             
             EndTextureMode();
 
             BeginDrawing();
 
-            ClearBackground(BLACK); 
-            DrawTextureRec(target.texture, Rectangle{0, 0, (float)GetScreenWidth(), (float)GetScreenHeight()}, Vector2{0, 0}, WHITE); //fixed aspect ratio
+            DrawTextureRec(target.texture,
+                Rectangle{0, (float)target.texture.height, (float)target.texture.width, -(float)target.texture.height},
+                Vector2{0, 0}, WHITE);
+             //fixed aspect ratio
 
             EndDrawing();
         }
 
         DATA::Save();
+
+        Textures::Unload();
+
+        CloseWindow();
+        CloseAudioDevice();
         
         return 0;
     }

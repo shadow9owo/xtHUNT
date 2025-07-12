@@ -1,17 +1,16 @@
+#include "Types.hpp"
+
 namespace DATA
 {
     namespace Vars
     {
+        extern bool debug;
         extern bool running;
         extern bool isfullscreen;
+        extern Scenes currentScene;
 
         namespace Consts
         {
-            enum Scenes
-            {
-                MainMenu,
-                Game
-            };
             extern int win[2];
         }
     }
