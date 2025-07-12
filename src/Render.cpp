@@ -21,10 +21,7 @@ namespace Renderer
 
         bool IsButtonClicked(Button Button)
         {
-            Rectangle MouseRect = {(float)Utils::GetMousePositionPro().x, (float)Utils::GetMousePositionPro().y, 4, 4};
-            Rectangle ButtonRect = {(float)Button.position.x, (float)Button.position.y, (float)Button.size.x, (float)Button.size.y};
-
-            if (CheckCollisionRecs(MouseRect, ButtonRect))
+            if (IsButtonHovered(Button))
             {
                 if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
                 {
