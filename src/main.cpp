@@ -6,6 +6,7 @@
 #include "Input.hpp"
 #include "main.hpp"
 #include "Textures.hpp"
+#include "Utils.hpp"
 
 namespace GAME { extern int run(); }
 
@@ -30,6 +31,14 @@ namespace GAME
     {
         InitWindow(DATA::Vars::Consts::win[0], DATA::Vars::Consts::win[1], "xthunt");
         InitAudioDevice();
+
+        Camera2D camera = { 0 };
+        camera.target = (Vector2){0,0};
+        camera.offset = (Vector2){0,0};
+        camera.rotation = 0.0f;
+        camera.zoom = 1.0f;
+
+        Renderer::cam = camera;
         
         Textures::Load();
 
@@ -71,7 +80,11 @@ namespace GAME
             Renderer::RenderWorld();
 
             Renderer::RenderUI();
+                            
+            Renderer::UI_Elements::RenderCursor(false);
             
+            Renderer::RenderUIOverlay();
+
             EndTextureMode();
 
             BeginDrawing();

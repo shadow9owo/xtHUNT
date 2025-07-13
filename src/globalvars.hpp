@@ -8,6 +8,7 @@ namespace DATA
         extern bool running;
         extern bool isfullscreen;
         extern Scenes currentScene;
+        extern Map currentlocation;
 
         namespace Consts
         {

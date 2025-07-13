@@ -10,6 +10,7 @@ namespace DATA
         bool running = true;
         bool isfullscreen = true;
         Scenes currentScene = MainMenu; 
+        Map currentlocation = Map::None;
 
         namespace Consts //could make a vector2i struct but i am lazy atm
         {

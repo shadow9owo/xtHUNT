@@ -21,7 +21,10 @@ namespace Renderer
 
         bool IsButtonClicked(Button Button)
         {
-            if (IsButtonHovered(Button))
+            Rectangle MouseRect = {(float)Utils::GetMousePositionPro().x, (float)Utils::GetMousePositionPro().y, 4, 4};
+            Rectangle ButtonRect = {(float)Button.position.x, (float)Button.position.y, (float)Button.size.x, (float)Button.size.y};
+
+            if (CheckCollisionRecs(MouseRect, ButtonRect))
             {
                 if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
                 {
@@ -73,6 +76,11 @@ namespace Renderer
                 );
             }
         }
+        void RenderToolTip(std::string text)
+        {
+            Vector2I mousePos = Utils::GetMousePositionPro();
+            DrawText(text.c_str(), mousePos.x, mousePos.y, 24, WHITE);
+        }
     }
 
     void RenderWorld()
@@ -85,6 +93,18 @@ namespace Renderer
             case Game:
                 BeginMode2D(cam);
                 // draw world
+                switch (DATA::Vars::currentlocation)
+                {
+                case Map::Home:
+                    DrawTexturePro(Textures::textures[texture_Home].TextureData,
+                               Rectangle{0, 0, (float)Textures::textures[texture_Home].TextureData.width, (float)Textures::textures[texture_Home].TextureData.height},
+                               Rectangle{0, 0, (float)GetScreenWidth(), (float)GetScreenHeight()},
+                               Vector2{0, 0}, 0.0f, WHITE);
+                    break;
+                
+                default:
+                    break;
+                }
                 EndMode2D();
                 return;
             default:
@@ -94,10 +114,40 @@ namespace Renderer
         return;
     }
 
+    void RenderUIOverlay()
+    {
+        for (ClickableObject i : Utils::GetButtons(DATA::Vars::currentlocation))
+        {
+            Vector2I pos = Utils::GetMousePositionPro();
+            Rectangle buttonRect = {
+                (float)i.position.x, 
+                (float)i.position.y, 
+                (float)i.size.x, 
+                (float)i.size.y
+            };
+            if (CheckCollisionRecs({(float)pos.x,(float)pos.y,4,4},buttonRect))
+            {
+                Renderer::UI_Elements::RenderToolTip(Utils::ObjectIDToSTR((ObjectIDs)i.id));
+            }
+        }
+        return;
+    }
+
     void RenderUI()
     {
         Button Exitbtn = Button(Vector2I(2, 100), Vector2I(MeasureText("Exit Game",24) * 1.5f, 40), "Exit Game",WHITE, {192,192,192,64}, 24);
         Button Startbtn = Button(Vector2I(2, 50), Vector2I(MeasureText("Start Game",24) * 1.5f, 40), "Start Game", WHITE, {192,192,192,64}, 24);
+        
+        if (DATA::Vars::debug)
+        {
+            std::string mousePos = std::to_string(GetMouseX()) + "X " + std::to_string(GetMouseY()) + "Y";
+            DrawText(mousePos.c_str(), 0, 0, 24, WHITE);
+            for (ClickableObject i : Utils::GetButtons(DATA::Vars::currentlocation))
+            {
+                DrawRectangleLinesEx({(float)i.position.x,(float)i.position.y,(float)i.size.x,(float)i.size.y},8,GREEN);
+            }
+            
+        }
 
         switch (DATA::Vars::currentScene)
         {
@@ -116,6 +166,7 @@ namespace Renderer
 
                 if (Renderer::UI_Elements::IsButtonClicked(Startbtn))
                 {
+                    DATA::Vars::currentlocation = Map::Home;
                     DATA::Vars::currentScene = Game;
                     LOGGER::Log("Starting game...");
                 }
@@ -135,8 +186,6 @@ namespace Renderer
                     DATA::Vars::running = false;
                     LOGGER::Log("Exiting game...");
                 }
-                
-                Renderer::UI_Elements::RenderCursor(false);
                 return;
             case Game:
                 return;
