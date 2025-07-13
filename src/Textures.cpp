@@ -8,8 +8,8 @@ namespace Textures
 
     void Load()
     {
-        textures.push_back(TextureStruct(CursorHover, LoadTexture("hover.png")));
-        textures.push_back(TextureStruct(CursorGrab, LoadTexture("grab.png")));
+        textures.push_back(TextureStruct(CursorHover, LoadTexture("./graphics/hover.png")));
+        textures.push_back(TextureStruct(CursorGrab, LoadTexture("./graphics/grab.png")));
     }
     void Unload()
     {
