@@ -13,9 +13,10 @@ namespace Renderer
         extern bool IsButtonHovered(Button Button);
         extern void RenderCursor(bool hovering);
         extern void RenderToolTip(std::string text);
+        extern void RenderMessage();
     }
 
     extern void RenderWorld();
     extern void RenderUIOverlay();
-    extern void RenderUI();
+    extern void RenderUI(); 
 }

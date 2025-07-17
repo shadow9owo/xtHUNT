@@ -10,6 +10,7 @@
 
 namespace GAME { extern int run(); }
 
+
 int main(int argc, char *argv[])
 {
     DATA::Load();
@@ -84,7 +85,7 @@ namespace GAME
             Renderer::UI_Elements::RenderCursor(false);
             
             Renderer::RenderUIOverlay();
-
+            
             EndTextureMode();
 
             BeginDrawing();

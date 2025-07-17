@@ -45,22 +45,32 @@ enum Scenes
 
 enum ObjectIDs
 {
-    Bed = 1,
-    Sink,
-    Door
+    Home_Bed = 1,
+    Home_Sink,
+    Home_Door,
+    Hallway_Exit,
+    Hallway_Door_bedroom,
+    Hallway_Door_Broken
+};
+
+enum Items
+{
+    Item_None = 0
 };
 
 enum Map
 {
-    None,
-    Home
+    Map_None,
+    Home,
+    Hallway
 };
 
 enum TexturesEnum
 {
     CursorHover,
     CursorGrab,
-    texture_Home
+    texture_Home,
+    texture_hallway
 };
 
 struct TextureStruct

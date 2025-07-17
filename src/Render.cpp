@@ -81,6 +81,16 @@ namespace Renderer
             Vector2I mousePos = Utils::GetMousePositionPro();
             DrawText(text.c_str(), mousePos.x, mousePos.y, 24, WHITE);
         }
+
+        void RenderMessage()
+        {
+            if (!DATA::Vars::Message.empty())
+            {
+                GetScreenWidth() / 2 + MeasureText(DATA::Vars::Message.c_str(), 24) / 2;
+                DrawText(DATA::Vars::Message.c_str(), GetScreenWidth() / 2 - MeasureText(DATA::Vars::Message.c_str(), 24),80, 24, WHITE);
+            }
+            return;
+        }
     }
 
     void RenderWorld()
@@ -101,6 +111,12 @@ namespace Renderer
                                Rectangle{0, 0, (float)GetScreenWidth(), (float)GetScreenHeight()},
                                Vector2{0, 0}, 0.0f, WHITE);
                     break;
+
+                case Map::Hallway:
+                    DrawTexturePro(Textures::textures[texture_hallway].TextureData,
+                               Rectangle{0, 0, (float)Textures::textures[texture_hallway].TextureData.width, (float)Textures::textures[texture_hallway].TextureData.height},
+                               Rectangle{0, 0, (float)GetScreenWidth(), (float)GetScreenHeight()},
+                               Vector2{0, 0}, 0.0f, WHITE);
                 
                 default:
                     break;
@@ -127,9 +143,14 @@ namespace Renderer
             };
             if (CheckCollisionRecs({(float)pos.x,(float)pos.y,4,4},buttonRect))
             {
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+                {
+                    Utils::ObjectIDClicked((ObjectIDs)i.id);
+                }
                 Renderer::UI_Elements::RenderToolTip(Utils::ObjectIDToSTR((ObjectIDs)i.id));
             }
         }
+        UI_Elements::RenderMessage();
         return;
     }
 
@@ -193,6 +214,7 @@ namespace Renderer
                 LOGGER::Log("something went really wrong i fucking hate this (Void Renderer::RenderUI())");
                 return;
         }
+
         return;
     }
 }

@@ -1,5 +1,5 @@
 #include "Types.hpp"
-
+#include <vector>
 namespace DATA
 {
     namespace Vars
@@ -9,6 +9,11 @@ namespace DATA
         extern bool isfullscreen;
         extern Scenes currentScene;
         extern Map currentlocation;
+        extern std::vector<Items> Inventory;
+
+        extern std::vector<Vector2I> placementbuffer;
+
+        extern std::string Message;
 
         namespace Consts
         {
