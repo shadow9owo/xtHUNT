@@ -88,6 +88,8 @@ namespace GAME
             
             EndTextureMode();
 
+            Utils::updatetimers();
+
             BeginDrawing();
 
             DrawTextureRec(target.texture,

@@ -12,4 +12,6 @@ namespace Utils
     extern void ClearMessage();
 
     extern Vector2I GetSizeFromPositions(const std::vector<Vector2I>& vec);
+
+    extern void updatetimers();
 }

@@ -79,6 +79,7 @@ namespace Renderer
         void RenderToolTip(std::string text)
         {
             Vector2I mousePos = Utils::GetMousePositionPro();
+            DrawText(text.c_str(), mousePos.x+2, mousePos.y+2, 24, BLACK);
             DrawText(text.c_str(), mousePos.x, mousePos.y, 24, WHITE);
         }
 
@@ -86,8 +87,9 @@ namespace Renderer
         {
             if (!DATA::Vars::Message.empty())
             {
-                GetScreenWidth() / 2 + MeasureText(DATA::Vars::Message.c_str(), 24) / 2;
-                DrawText(DATA::Vars::Message.c_str(), GetScreenWidth() / 2 - MeasureText(DATA::Vars::Message.c_str(), 24),80, 24, WHITE);
+                float offset = GetScreenWidth() / 2 - MeasureText(DATA::Vars::Message.c_str(), 24) / 2;
+                DrawText(DATA::Vars::Message.c_str(), offset + 2, 82, 24, BLACK); 
+                DrawText(DATA::Vars::Message.c_str(), offset, 80, 24, WHITE); 
             }
             return;
         }
@@ -97,27 +99,33 @@ namespace Renderer
     {
         switch (DATA::Vars::currentScene)
         {
-            case MainMenu:
+            case Scene_MainMenu:
                 //return earlier no need to init 2dcamera
                 return;
-            case Game:
+            case Scene_Game:
                 BeginMode2D(cam);
                 // draw world
                 switch (DATA::Vars::currentlocation)
                 {
-                case Map::Home:
+                case Map::Map_Home:
                     DrawTexturePro(Textures::textures[texture_Home].TextureData,
                                Rectangle{0, 0, (float)Textures::textures[texture_Home].TextureData.width, (float)Textures::textures[texture_Home].TextureData.height},
                                Rectangle{0, 0, (float)GetScreenWidth(), (float)GetScreenHeight()},
                                Vector2{0, 0}, 0.0f, WHITE);
                     break;
 
-                case Map::Hallway:
+                case Map::Map_Hallway:
                     DrawTexturePro(Textures::textures[texture_hallway].TextureData,
                                Rectangle{0, 0, (float)Textures::textures[texture_hallway].TextureData.width, (float)Textures::textures[texture_hallway].TextureData.height},
                                Rectangle{0, 0, (float)GetScreenWidth(), (float)GetScreenHeight()},
                                Vector2{0, 0}, 0.0f, WHITE);
-                
+                    break;
+                case Map::Map_outsidehome:
+                        DrawTexturePro(Textures::textures[Texture_outside_home].TextureData,
+                               Rectangle{0, 0, (float)Textures::textures[Texture_outside_home].TextureData.width, (float)Textures::textures[Texture_outside_home].TextureData.height},
+                               Rectangle{0, 0, (float)GetScreenWidth(), (float)GetScreenHeight()},
+                               Vector2{0, 0}, 0.0f, WHITE);
+                    break;
                 default:
                     break;
                 }
@@ -172,7 +180,7 @@ namespace Renderer
 
         switch (DATA::Vars::currentScene)
         {
-            case MainMenu:
+            case Scene_MainMenu:
                 DrawTextPro(font,"code name xthunt (change later)",{2,6},{0,0},0,24,0.2f,WHITE);
                 
                 if (Renderer::UI_Elements::IsButtonHovered(Startbtn))
@@ -187,8 +195,8 @@ namespace Renderer
 
                 if (Renderer::UI_Elements::IsButtonClicked(Startbtn))
                 {
-                    DATA::Vars::currentlocation = Map::Home;
-                    DATA::Vars::currentScene = Game;
+                    DATA::Vars::currentlocation = Map::Map_Home;
+                    DATA::Vars::currentScene = Scene_Game;
                     LOGGER::Log("Starting game...");
                 }
                 
@@ -208,7 +216,7 @@ namespace Renderer
                     LOGGER::Log("Exiting game...");
                 }
                 return;
-            case Game:
+            case Scene_Game:
                 return;
             default:
                 LOGGER::Log("something went really wrong i fucking hate this (Void Renderer::RenderUI())");

@@ -10,7 +10,7 @@ namespace DATA
         bool debug = false;
         bool running = true;
         bool isfullscreen = true;
-        Scenes currentScene = MainMenu;
+        Scenes currentScene = Scene_MainMenu;
         Map currentlocation = Map::Map_None;
         std::vector<Items> Inventory;
 

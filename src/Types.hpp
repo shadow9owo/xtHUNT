@@ -39,18 +39,18 @@ struct ClickableObject
 
 enum Scenes
 {
-    MainMenu,
-    Game
+    Scene_MainMenu,
+    Scene_Game
 };
 
 enum ObjectIDs
 {
-    Home_Bed = 1,
-    Home_Sink,
-    Home_Door,
-    Hallway_Exit,
-    Hallway_Door_bedroom,
-    Hallway_Door_Broken
+    ObjectID_Home_Bed = 1,
+    ObjectID_Home_Sink,
+    ObjectID_Home_Door,
+    ObjectID_Hallway_Exit,
+    ObjectID_Hallway_Door_bedroom,
+    ObjectID_Hallway_Door_Broken
 };
 
 enum Items
@@ -61,8 +61,9 @@ enum Items
 enum Map
 {
     Map_None,
-    Home,
-    Hallway
+    Map_Home,
+    Map_Hallway,
+    Map_outsidehome
 };
 
 enum TexturesEnum
@@ -70,7 +71,8 @@ enum TexturesEnum
     CursorHover,
     CursorGrab,
     texture_Home,
-    texture_hallway
+    texture_hallway,
+    Texture_outside_home
 };
 
 struct TextureStruct

@@ -33,16 +33,18 @@ namespace Utils
         }
         switch (DATA::Vars::currentlocation)
         {
-            case Map::Home:      
-                buffer.push_back(ClickableObject(Vector2I(105 , 436), Vector2I(467 , 191), Home_Bed, WHITE, {192, 192, 192, 64}, 24)); //initial size - initial position
-                buffer.push_back(ClickableObject(Vector2I(663 , 256 ), Vector2I(159  , 347 ), Home_Door, WHITE, {192, 192, 192, 64}, 24));
-                buffer.push_back(ClickableObject(Vector2I(1034  , 414 ), Vector2I(207  , 116 ), Home_Sink, WHITE, {192, 192, 192, 64}, 24));
+            case Map::Map_Home:      
+                buffer.push_back(ClickableObject(Vector2I(105 , 436), Vector2I(467 , 191), ObjectID_Home_Bed, WHITE, {192, 192, 192, 64}, 24)); //initial size - initial position
+                buffer.push_back(ClickableObject(Vector2I(663 , 256 ), Vector2I(159  , 347 ), ObjectID_Home_Door, WHITE, {192, 192, 192, 64}, 24));
+                buffer.push_back(ClickableObject(Vector2I(1034  , 414 ), Vector2I(207  , 116 ), ObjectID_Home_Sink, WHITE, {192, 192, 192, 64}, 24));
                 return buffer;
-            case Map::Hallway:
-                buffer.push_back(ClickableObject(Vector2I(0 , 190), Vector2I(51 , 518), Hallway_Door_bedroom, WHITE, {192, 192, 192, 64}, 24)); //initial size - initial position
-                buffer.push_back(ClickableObject(Vector2I(527 , 181 ), Vector2I(368  , 166 ), Hallway_Exit, WHITE, {192, 192, 192, 64}, 24));
-                buffer.push_back(ClickableObject(Vector2I(1241  , 213 ), Vector2I(1034  , 97 ), Hallway_Door_Broken, WHITE, {192, 192, 192, 64}, 24));
+            case Map::Map_Hallway:
+                buffer.push_back(ClickableObject(Vector2I(0 , 190), Vector2I(51 , 518), ObjectID_Hallway_Door_bedroom, WHITE, {192, 192, 192, 64}, 24)); //initial size - initial position
+                buffer.push_back(ClickableObject(Vector2I(522 , 173 ), Vector2I(212  , 395 ), ObjectID_Hallway_Exit, WHITE, {192, 192, 192, 64}, 24));
+                buffer.push_back(ClickableObject(Vector2I(1233  , 209 ), Vector2I(41  , 486 ), ObjectID_Hallway_Door_Broken, WHITE, {192, 192, 192, 64}, 24));
                 return buffer;
+            case Map::Map_outsidehome:
+                return {};
             case Map::Map_None:
                 return {};
             default:
@@ -55,16 +57,18 @@ namespace Utils
     {
         switch (id)
         {
-            case Home_Door:
+            case ObjectID_Home_Door:
                 return "Click To Interact With The Door";
-            case Home_Sink:
+            case ObjectID_Home_Sink:
                 return "Click to interact with the Sink";
-            case Home_Bed:
+            case ObjectID_Home_Bed:
                 return "Click To interact with the Bed";
-            case Hallway_Exit:
+            case ObjectID_Hallway_Exit:
                 return "Click To Exit The House";
-            case Hallway_Door_bedroom:
+            case ObjectID_Hallway_Door_bedroom:
                 return "Click To Enter The Bedroom";
+            case ObjectID_Hallway_Door_Broken:
+                return "Click To Interact with the broken door";
         }
         return "";
     }
@@ -73,20 +77,22 @@ namespace Utils
     {
         switch (id)
         {
-            case ObjectIDs::Home_Bed:
+            case ObjectIDs::ObjectID_Home_Bed:
                 SetMessage("its just a bed");
                 return;
-            case ObjectIDs::Home_Sink:
+            case ObjectIDs::ObjectID_Home_Sink:
                 SetMessage("Its broken and leaking.");
                 return;
-            case ObjectIDs::Home_Door:
-                DATA::Vars::currentlocation = Map::Hallway;
-            case ObjectIDs::Hallway_Exit:
+            case ObjectIDs::ObjectID_Home_Door:
+                DATA::Vars::currentlocation = Map::Map_Hallway;
                 return;
-            case ObjectIDs::Hallway_Door_bedroom:
-                DATA::Vars::currentlocation = Map::Home;
+            case ObjectIDs::ObjectID_Hallway_Exit:
+                DATA::Vars::currentlocation = Map::Map_outsidehome;
                 return;
-            case ObjectIDs::Hallway_Door_Broken:
+            case ObjectIDs::ObjectID_Hallway_Door_bedroom:
+                DATA::Vars::currentlocation = Map::Map_Home;
+                return;
+            case ObjectIDs::ObjectID_Hallway_Door_Broken:
                 SetMessage("its stuck");
                 return;
             default:
@@ -116,5 +122,11 @@ namespace Utils
         int maxY = std::max(vec[0].y, vec[1].y);
 
         return { maxX - minX, maxY - minY };
+    }
+
+    void updatetimers()
+    {
+        
+        return;
     }
 }
