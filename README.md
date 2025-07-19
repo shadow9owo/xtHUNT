@@ -1,5 +1,5 @@
 # xtHUNT
-fast paced joke game
+joke game
 
 idea :
 - raylib c++
