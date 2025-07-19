@@ -5,6 +5,7 @@
 #include "main.hpp"
 #include "logger.hpp"
 #include "cmath"
+#include "main.hpp"
 
 namespace Utils
 {
@@ -147,4 +148,19 @@ namespace Utils
         }
         return "";
     }
+
+    Vector2I getscreensize()
+    {
+        if (DATA::Vars::isfullscreen)
+        {
+            return {GetMonitorWidth(0), GetMonitorHeight(0)};
+        }else 
+        {
+            return {DATA::Vars::Consts::win[0],DATA::Vars::Consts::win[1]};
+        }
+        return {0,0};
+    }
+
+    int GetInternalRenderWidth() { return GAME::target.texture.width; }
+    int GetInternalRenderHeight() { return GAME::target.texture.height; }
 }

@@ -16,4 +16,9 @@ namespace Utils
     extern void updatetimers();
 
     extern std::string getinfo();
+
+    extern Vector2I getscreensize();
+
+    extern int GetInternalRenderWidth();
+    extern int GetInternalRenderHeight();
 }

@@ -92,10 +92,11 @@ namespace GAME
 
             BeginDrawing();
 
-            DrawTextureRec(target.texture,
-                Rectangle{0, (float)target.texture.height, (float)target.texture.width, -(float)target.texture.height},
-                Vector2{0, 0}, WHITE);
-             //fixed aspect ratio
+            //target.texture
+            DrawTexturePro(target.texture,{0,0,(float)target.texture.width,-(float)target.texture.height}
+            ,{0,0,(float)Utils::getscreensize().x,(float)Utils::getscreensize().y},
+            {0,0},0,WHITE);
+            //fixed aspect ratio
 
             EndDrawing();
         }

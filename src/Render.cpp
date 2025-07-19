@@ -88,7 +88,7 @@ namespace Renderer
         {
             if (!DATA::Vars::Message.empty())
             {
-                float offset = GetScreenWidth() / 2 - MeasureText(DATA::Vars::Message.c_str(), 24) / 2;
+                float offset = Utils::GetInternalRenderWidth() / 2 - MeasureText(DATA::Vars::Message.c_str(), 24) / 2;
                 DrawText(DATA::Vars::Message.c_str(), offset + 2, 82, 24, BLACK); 
                 DrawText(DATA::Vars::Message.c_str(), offset, 80, 24, WHITE); 
             }
@@ -111,20 +111,20 @@ namespace Renderer
                 case Map::Map_Home:
                     DrawTexturePro(Textures::textures[texture_Home].TextureData,
                                Rectangle{0, 0, (float)Textures::textures[texture_Home].TextureData.width, (float)Textures::textures[texture_Home].TextureData.height},
-                               Rectangle{0, 0, (float)GetScreenWidth(), (float)GetScreenHeight()},
+                               Rectangle{0, 0, (float)Utils::GetInternalRenderWidth(), (float)Utils::GetInternalRenderHeight()},
                                Vector2{0, 0}, 0.0f, WHITE);
                     break;
 
                 case Map::Map_Hallway:
                     DrawTexturePro(Textures::textures[texture_hallway].TextureData,
                                Rectangle{0, 0, (float)Textures::textures[texture_hallway].TextureData.width, (float)Textures::textures[texture_hallway].TextureData.height},
-                               Rectangle{0, 0, (float)GetScreenWidth(), (float)GetScreenHeight()},
+                               Rectangle{0, 0, (float)Utils::GetInternalRenderWidth(), (float)Utils::GetInternalRenderHeight()},
                                Vector2{0, 0}, 0.0f, WHITE);
                     break;
                 case Map::Map_outsidehome:
                         DrawTexturePro(Textures::textures[Texture_outside_home].TextureData,
                                Rectangle{0, 0, (float)Textures::textures[Texture_outside_home].TextureData.width, (float)Textures::textures[Texture_outside_home].TextureData.height},
-                               Rectangle{0, 0, (float)GetScreenWidth(), (float)GetScreenHeight()},
+                               Rectangle{0, 0, (float)Utils::GetInternalRenderWidth(), (float)Utils::GetInternalRenderHeight()},
                                Vector2{0, 0}, 0.0f, WHITE);
                     break;
                 default:
@@ -167,8 +167,8 @@ namespace Renderer
     {
         Color partiallyvisible = {255,255,255,32};
 
-        Button Startbtn = Button(Vector2I((GetScreenWidth() - (int)MeasureTextEx(GetFontDefault(), "Start Game", 24.0f, 1.0f).x) / 2, 100), Vector2I((int)MeasureTextEx(GetFontDefault(), "Start Game", 24.0f, 1.0f).x + 40, 40), "Start Game", WHITE, {192,192,192,64}, 24);
-        Button Exitbtn  = Button(Vector2I((GetScreenWidth() - (int)MeasureTextEx(GetFontDefault(), "Exit Game", 24.0f, 1.0f).x) / 2, 150), Vector2I((int)MeasureTextEx(GetFontDefault(), "Exit Game", 24.0f, 1.0f).x + 40, 40), "Exit Game",  WHITE, {192,192,192,64}, 24);
+        Button Startbtn = Button(Vector2I((Utils::GetInternalRenderWidth() - (int)MeasureTextEx(GetFontDefault(), "Start Game", 24.0f, 1.0f).x) / 2, 100), Vector2I((int)MeasureTextEx(GetFontDefault(), "Start Game", 24.0f, 1.0f).x + 40, 40), "Start Game", WHITE, {192,192,192,64}, 24);
+        Button Exitbtn  = Button(Vector2I((Utils::GetInternalRenderWidth() - (int)MeasureTextEx(GetFontDefault(), "Exit Game", 24.0f, 1.0f).x) / 2, 150), Vector2I((int)MeasureTextEx(GetFontDefault(), "Exit Game", 24.0f, 1.0f).x + 40, 40), "Exit Game",  WHITE, {192,192,192,64}, 24);
         
         if (DATA::Vars::debug)
         {
@@ -184,11 +184,11 @@ namespace Renderer
         switch (DATA::Vars::currentScene)
         {
             case Scene_MainMenu:
-                DrawTextPro(font, "XThunt", { (GetScreenWidth() - MeasureTextEx(font, "XThunt", 72.0f, 0.2f).x) / 2.0f, 6 }, {0, 0}, 0.0f, 72.0f, 0.2f, WHITE);
+                DrawTextPro(font, "XThunt", { (Utils::GetInternalRenderWidth() - MeasureTextEx(font, "XThunt", 72.0f, 0.2f).x) / 2.0f, 6 }, {0, 0}, 0.0f, 72.0f, 0.2f, WHITE);
 
-                for (float y = 0; y < GetScreenHeight(); y += 64)
+                for (float y = 0; y < Utils::GetInternalRenderHeight(); y += 64)
                 {
-                    for (float x = 0; x < GetScreenWidth(); x += 128)
+                    for (float x = 0; x < Utils::GetInternalRenderWidth(); x += 128)
                     {
                         if (DATA::Vars::UIfloattimer < 0.2f)
                         {
