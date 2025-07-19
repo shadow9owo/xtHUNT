@@ -13,6 +13,8 @@ namespace Textures
         textures.push_back(TextureStruct(texture_Home, LoadTexture("./graphics/home.bmp")));
         textures.push_back(TextureStruct(texture_hallway, LoadTexture("./graphics/hallway.png")));
         textures.push_back(TextureStruct(Texture_outside_home, LoadTexture("./graphics/outside.png")));
+        textures.push_back(TextureStruct(Eye, LoadTexture("./graphics/eye.bmp")));
+        textures.push_back(TextureStruct(Eye2, LoadTexture("./graphics/eye2.bmp")));
     }
     void Unload()
     {

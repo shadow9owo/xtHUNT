@@ -14,4 +14,6 @@ namespace Utils
     extern Vector2I GetSizeFromPositions(const std::vector<Vector2I>& vec);
 
     extern void updatetimers();
+
+    extern std::string getinfo();
 }

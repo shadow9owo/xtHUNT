@@ -18,6 +18,8 @@ namespace DATA
 
         std::string Message;
 
+        float UIfloattimer = 1;
+
         namespace Consts
         {
             int win[2] = {1280, 720}; // width, height

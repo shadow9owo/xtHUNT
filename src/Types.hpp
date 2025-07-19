@@ -72,7 +72,9 @@ enum TexturesEnum
     CursorGrab,
     texture_Home,
     texture_hallway,
-    Texture_outside_home
+    Texture_outside_home,
+    Eye,
+    Eye2
 };
 
 struct TextureStruct

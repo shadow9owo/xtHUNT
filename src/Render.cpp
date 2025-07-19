@@ -6,6 +6,7 @@
 #include "Render.hpp"
 #include <iostream>
 #include "Textures.hpp"
+#include <cmath>
 
 namespace Renderer
 {
@@ -164,8 +165,10 @@ namespace Renderer
 
     void RenderUI()
     {
-        Button Exitbtn = Button(Vector2I(2, 100), Vector2I(MeasureText("Exit Game",24) * 1.5f, 40), "Exit Game",WHITE, {192,192,192,64}, 24);
-        Button Startbtn = Button(Vector2I(2, 50), Vector2I(MeasureText("Start Game",24) * 1.5f, 40), "Start Game", WHITE, {192,192,192,64}, 24);
+        Color partiallyvisible = {255,255,255,32};
+
+        Button Startbtn = Button(Vector2I((GetScreenWidth() - (int)MeasureTextEx(GetFontDefault(), "Start Game", 24.0f, 1.0f).x) / 2, 100), Vector2I((int)MeasureTextEx(GetFontDefault(), "Start Game", 24.0f, 1.0f).x + 40, 40), "Start Game", WHITE, {192,192,192,64}, 24);
+        Button Exitbtn  = Button(Vector2I((GetScreenWidth() - (int)MeasureTextEx(GetFontDefault(), "Exit Game", 24.0f, 1.0f).x) / 2, 150), Vector2I((int)MeasureTextEx(GetFontDefault(), "Exit Game", 24.0f, 1.0f).x + 40, 40), "Exit Game",  WHITE, {192,192,192,64}, 24);
         
         if (DATA::Vars::debug)
         {
@@ -181,7 +184,28 @@ namespace Renderer
         switch (DATA::Vars::currentScene)
         {
             case Scene_MainMenu:
-                DrawTextPro(font,"code name xthunt (change later)",{2,6},{0,0},0,24,0.2f,WHITE);
+                DrawTextPro(font, "XThunt", { (GetScreenWidth() - MeasureTextEx(font, "XThunt", 72.0f, 0.2f).x) / 2.0f, 6 }, {0, 0}, 0.0f, 72.0f, 0.2f, WHITE);
+
+                for (float y = 0; y < GetScreenHeight(); y += 64)
+                {
+                    for (float x = 0; x < GetScreenWidth(); x += 128)
+                    {
+                        if (DATA::Vars::UIfloattimer < 0.2f)
+                        {
+                            DrawTexturePro(Textures::textures[Eye2].TextureData,
+                                Rectangle{0, 0, (float)Textures::textures[Eye2].TextureData.width, (float)Textures::textures[Eye2].TextureData.height},
+                                Rectangle{x, y, 128, 64},
+                                Vector2{0, 0}, 0.0f, partiallyvisible);
+                        }
+                        else
+                        {
+                            DrawTexturePro(Textures::textures[Eye].TextureData,
+                                Rectangle{0, 0, (float)Textures::textures[Eye].TextureData.width, (float)Textures::textures[Eye].TextureData.height},
+                                Rectangle{x, y, 128, 64},
+                                Vector2{0, 0}, 0.0f, partiallyvisible);
+                        }
+                    }
+                }
                 
                 if (Renderer::UI_Elements::IsButtonHovered(Startbtn))
                 {
@@ -215,6 +239,8 @@ namespace Renderer
                     DATA::Vars::running = false;
                     LOGGER::Log("Exiting game...");
                 }
+
+                DrawTextPro(GetFontDefault(),Utils::getinfo().c_str(),{0,720-24},{0,0},0,24,0.2f,WHITE);
                 return;
             case Scene_Game:
                 return;

@@ -126,7 +126,25 @@ namespace Utils
 
     void updatetimers()
     {
-        
+        if (DATA::Vars::UIfloattimer <= 0)
+        {
+            DATA::Vars::UIfloattimer = 1;
+        }
+        else 
+        {
+            DATA::Vars::UIfloattimer = DATA::Vars::UIfloattimer - GetFrameTime();
+        }
         return;
+    }
+
+    std::string getinfo()
+    {
+        if (DATA::Vars::debug)
+        {
+            return "debug enabled";
+        }else {
+            return "alpha build";
+        }
+        return "";
     }
 }

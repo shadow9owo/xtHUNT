@@ -15,6 +15,8 @@ namespace DATA
 
         extern std::string Message;
 
+        extern float UIfloattimer;
+
         namespace Consts
         {
             extern int win[2];
