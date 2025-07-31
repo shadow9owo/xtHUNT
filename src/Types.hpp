@@ -1,8 +1,10 @@
 #include <string>
 #include <raylib.h>
-#include <json/json.h>
+#include "json.hpp"
 
 #pragma once
+
+using json = nlohmann::json;
 
 struct Vector2I
 {
@@ -46,7 +48,7 @@ enum Scenes
 
 enum ObjectIDs
 {
-    None = 0,
+    Object_None = 0,
     ObjectID_Home_Bed,
     ObjectID_Home_Sink,
     ObjectID_Home_Door,
@@ -70,7 +72,7 @@ enum Map
 
 enum TexturesEnum
 {
-    None,
+    TextureEnum_None,
     CursorHover,
     CursorGrab,
     texture_Home,
@@ -82,17 +84,12 @@ enum TexturesEnum
 
 struct Inventory
 {
-    std::vector<Items> Items;
+    std::vector<int> Items;  
 
-        Json::Value toJson() const {
-        Json::Value array(Json::arrayValue);
-        for (int item : Items) {
-            array.append((item));
-        }
-
-        Json::Value root;
-        root["Items"] = array;
-        return root;
+    json toJson() const {
+        json j;
+        j["Items"] = Items;
+        return j;
     }
 };
 

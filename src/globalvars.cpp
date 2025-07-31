@@ -1,8 +1,10 @@
 #include "globalvars.hpp"
 #include "ini.hpp"
 #include "Types.hpp"
-#include "json/json.h"
+#include "json.hpp"
 #include <fstream>
+
+using json = nlohmann::json;
 
 namespace DATA
 {
@@ -34,57 +36,51 @@ namespace DATA
             return;
         }
 
-        Json::CharReaderBuilder reader;
-        Json::Value root;
-        std::string errors;
-
-        bool parsing = Json::parseFromStream(reader, file, &root, &errors);
-        file.close();
-
-        if (!parsing) {
+        json root;
+        try
+        {
+            file >> root;
+        }
+        catch (const json::parse_error& e)
+        {
+            std::cerr << "JSON parse error: " << e.what() << "\n";
             return;
         }
+        file.close();
 
         Vars::Inventory.clear();
 
-        const Json::Value items = root["Items"];
-        for (Json::Value::ArrayIndex i = 0; i < items.size(); ++i)
+        if (root.contains("Items") && root["Items"].is_array())
         {
-            int ii = items[i].asInt();
-            Items e = static_cast<Items>(ii);
-            Vars::Inventory.push_back(e);
+            for (const auto& item : root["Items"])
+            {
+                if (item.is_number_integer())
+                {
+                    Items e = static_cast<Items>(item.get<int>());
+                    Vars::Inventory.push_back(e);
+                }
+            }
         }
     }
 
     void SaveInventoryJson()
     {
+        json root;
+        root["Items"] = json::array();
+
+        for (const auto& item : Vars::Inventory)
+        {
+            root["Items"].push_back(static_cast<int>(item));
+        }
+
         std::ofstream file("inventory.json");
         if (!file.is_open()) {
             return;
         }
 
-        Json::Value root;
-        Json::Value items(Json::arrayValue);
-
-        for (size_t i = 0; i < Vars::Inventory.size(); ++i)
-        {
-            int ii = static_cast<int>(Vars::Inventory[i]);
-            items.append(ii);
-        }
-
-        root["Items"] = items;
-
-        Json::StreamWriterBuilder builder;
-        builder["indentation"] = "  ";
-
-        Json::StreamWriter* writer = builder.newStreamWriter();
-        writer->write(root, &file);
-
-        delete writer;
-
+        file << root.dump(2);
         file.close();
     }
-
 
     int Load()
     {

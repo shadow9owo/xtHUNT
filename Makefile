@@ -275,7 +275,7 @@ ifeq ($(PLATFORM),PLATFORM_DESKTOP)
 endif
 
 # Define library paths containing required libs.
-LDFLAGS = -LF:/libs -ljsoncpp
+LDFLAGS = -LC:/raylib/raylib/src
 
 ifneq ($(wildcard $(RAYLIB_RELEASE_PATH)/.*),)
     LDFLAGS += -L$(RAYLIB_RELEASE_PATH)
@@ -316,7 +316,7 @@ ifeq ($(PLATFORM),PLATFORM_DESKTOP)
     ifeq ($(PLATFORM_OS),LINUX)
         # Libraries for Debian GNU/Linux desktop compiling
         # NOTE: Required packages: libegl1-mesa-dev
-        LDLIBS = -lraylib -lGL -lm -lpthread -ldl -lrt
+        LDLIBS = -lraylib -lGL -lm -lpthread -ldl -lrt 
         
         # On X11 requires also below libraries
         LDLIBS += -lX11
@@ -370,7 +370,7 @@ OBJ_DIR = obj
 # Define all object files from source files
 SRC = $(call rwildcard, *.c, *.h)
 #OBJS = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
-OBJS ?= main.c
+OBJS ?= main.cpp
 
 # For Android platform we call a custom Makefile.Android
 ifeq ($(PLATFORM),PLATFORM_ANDROID)

@@ -70,6 +70,8 @@ namespace Utils
                 return "Click To Enter The Bedroom";
             case ObjectID_Hallway_Door_Broken:
                 return "Click To Interact with the broken door";
+            case Object_None:
+                break;
         }
         return "";
     }
@@ -95,6 +97,8 @@ namespace Utils
                 return;
             case ObjectIDs::ObjectID_Hallway_Door_Broken:
                 SetMessage("its stuck");
+                return;
+            case ObjectIDs::Object_None:
                 return;
             default:
                 return;
