@@ -1,7 +1,8 @@
 #include "globalvars.hpp"
 #include "ini.hpp"
 #include "Types.hpp"
-#include "tinyxml2.h"
+#include "json/json.h"
+#include <fstream>
 
 namespace DATA
 {
@@ -22,43 +23,68 @@ namespace DATA
 
         namespace Consts
         {
-            int win[2] = {1280, 720}; // width, height
+            int win[2] = {1280, 720};
         }
     }
 
-    void LoadInventoryFromXML()
+    void LoadInventoryJson()
     {
-        tinyxml2::XMLDocument doc;
-        if (doc.LoadFile("inventory.xml") != tinyxml2::XML_SUCCESS)
-        {
-            std::cerr << "Failed to load inventory.xml\n";
+        std::ifstream file("inventory.json");
+        if (!file.is_open()) {
+            return;
+        }
+
+        Json::CharReaderBuilder reader;
+        Json::Value root;
+        std::string errors;
+
+        bool parsing = Json::parseFromStream(reader, file, &root, &errors);
+        file.close();
+
+        if (!parsing) {
             return;
         }
 
         Vars::Inventory.clear();
 
-        tinyxml2::XMLElement* root = doc.FirstChildElement("Inventory");
-        if (!root) return;
-
-        for (tinyxml2::XMLElement* itemElement = root->FirstChildElement("Item");
-             itemElement != nullptr;
-             itemElement = itemElement->NextSiblingElement("Item"))
+        const Json::Value items = root["Items"];
+        for (Json::Value::ArrayIndex i = 0; i < items.size(); ++i)
         {
-            const char* text = itemElement->GetText();
-            if (text)
-            {
-                try
-                {
-                    int val = std::stoi(text);
-                    Vars::Inventory.push_back(static_cast<Items>(val));
-                }
-                catch(const std::exception& e)
-                {
-
-                }
-            }
+            int ii = items[i].asInt();
+            Items e = static_cast<Items>(ii);
+            Vars::Inventory.push_back(e);
         }
     }
+
+    void SaveInventoryJson()
+    {
+        std::ofstream file("inventory.json");
+        if (!file.is_open()) {
+            return;
+        }
+
+        Json::Value root;
+        Json::Value items(Json::arrayValue);
+
+        for (size_t i = 0; i < Vars::Inventory.size(); ++i)
+        {
+            int ii = static_cast<int>(Vars::Inventory[i]);
+            items.append(ii);
+        }
+
+        root["Items"] = items;
+
+        Json::StreamWriterBuilder builder;
+        builder["indentation"] = "  ";
+
+        Json::StreamWriter* writer = builder.newStreamWriter();
+        writer->write(root, &file);
+
+        delete writer;
+
+        file.close();
+    }
+
 
     int Load()
     {
@@ -105,26 +131,14 @@ namespace DATA
             }
         }
 
-        LoadInventoryFromXML();
+        LoadInventoryJson();
 
         return 0;
     }
 
     int Save()
     {
-        tinyxml2::XMLDocument doc;
-
-        tinyxml2::XMLElement* root = doc.NewElement("Inventory");
-        doc.InsertFirstChild(root);
-
-        for (Items item : Vars::Inventory)
-        {
-            tinyxml2::XMLElement* itemElement = doc.NewElement("Item");
-            itemElement->SetText(std::to_string(static_cast<int>(item)).c_str());
-            root->InsertEndChild(itemElement);
-        }
-
-        doc.SaveFile("inventory.xml");
+        SaveInventoryJson();
 
         DG2D::INI::setvalue("isfullscreen", Vars::isfullscreen ? "true" : "false");
 

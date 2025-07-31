@@ -108,27 +108,27 @@ namespace Renderer
                 // draw world
                 switch (DATA::Vars::currentlocation)
                 {
-                case Map::Map_Home:
-                    DrawTexturePro(Textures::textures[texture_Home].TextureData,
-                               Rectangle{0, 0, (float)Textures::textures[texture_Home].TextureData.width, (float)Textures::textures[texture_Home].TextureData.height},
-                               Rectangle{0, 0, (float)Utils::GetInternalRenderWidth(), (float)Utils::GetInternalRenderHeight()},
-                               Vector2{0, 0}, 0.0f, WHITE);
-                    break;
-
-                case Map::Map_Hallway:
-                    DrawTexturePro(Textures::textures[texture_hallway].TextureData,
-                               Rectangle{0, 0, (float)Textures::textures[texture_hallway].TextureData.width, (float)Textures::textures[texture_hallway].TextureData.height},
-                               Rectangle{0, 0, (float)Utils::GetInternalRenderWidth(), (float)Utils::GetInternalRenderHeight()},
-                               Vector2{0, 0}, 0.0f, WHITE);
-                    break;
-                case Map::Map_outsidehome:
-                        DrawTexturePro(Textures::textures[Texture_outside_home].TextureData,
-                               Rectangle{0, 0, (float)Textures::textures[Texture_outside_home].TextureData.width, (float)Textures::textures[Texture_outside_home].TextureData.height},
-                               Rectangle{0, 0, (float)Utils::GetInternalRenderWidth(), (float)Utils::GetInternalRenderHeight()},
-                               Vector2{0, 0}, 0.0f, WHITE);
-                    break;
-                default:
-                    break;
+                    case Map::Map_Home:
+                        DrawTexturePro(Textures::textures[texture_Home].TextureData,
+                                   Rectangle{0, 0, (float)Textures::textures[texture_Home].TextureData.width, (float)Textures::textures[texture_Home].TextureData.height},
+                                   Rectangle{0, 0, (float)Utils::GetInternalRenderWidth(), (float)Utils::GetInternalRenderHeight()},
+                                   Vector2{0, 0}, 0.0f, WHITE);
+                        break;
+                        
+                    case Map::Map_Hallway:
+                        DrawTexturePro(Textures::textures[texture_hallway].TextureData,
+                                   Rectangle{0, 0, (float)Textures::textures[texture_hallway].TextureData.width, (float)Textures::textures[texture_hallway].TextureData.height},
+                                   Rectangle{0, 0, (float)Utils::GetInternalRenderWidth(), (float)Utils::GetInternalRenderHeight()},
+                                   Vector2{0, 0}, 0.0f, WHITE);
+                        break;
+                    case Map::Map_outsidehome:
+                            DrawTexturePro(Textures::textures[Texture_outside_home].TextureData,
+                                   Rectangle{0, 0, (float)Textures::textures[Texture_outside_home].TextureData.width, (float)Textures::textures[Texture_outside_home].TextureData.height},
+                                   Rectangle{0, 0, (float)Utils::GetInternalRenderWidth(), (float)Utils::GetInternalRenderHeight()},
+                                   Vector2{0, 0}, 0.0f, WHITE);
+                        break;
+                    default:
+                        break;
                 }
                 EndMode2D();
                 return;

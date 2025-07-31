@@ -1,5 +1,6 @@
 #include "Types.hpp"
 #include <vector>
+
 namespace DATA
 {
     namespace Vars

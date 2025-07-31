@@ -1,5 +1,6 @@
 #include <string>
 #include <raylib.h>
+#include <json/json.h>
 
 #pragma once
 
@@ -45,7 +46,8 @@ enum Scenes
 
 enum ObjectIDs
 {
-    ObjectID_Home_Bed = 1,
+    None = 0,
+    ObjectID_Home_Bed,
     ObjectID_Home_Sink,
     ObjectID_Home_Door,
     ObjectID_Hallway_Exit,
@@ -68,6 +70,7 @@ enum Map
 
 enum TexturesEnum
 {
+    None,
     CursorHover,
     CursorGrab,
     texture_Home,
@@ -75,6 +78,22 @@ enum TexturesEnum
     Texture_outside_home,
     Eye,
     Eye2
+};
+
+struct Inventory
+{
+    std::vector<Items> Items;
+
+        Json::Value toJson() const {
+        Json::Value array(Json::arrayValue);
+        for (int item : Items) {
+            array.append((item));
+        }
+
+        Json::Value root;
+        root["Items"] = array;
+        return root;
+    }
 };
 
 struct TextureStruct
