@@ -54,7 +54,9 @@ enum ObjectIDs
     ObjectID_Home_Door,
     ObjectID_Hallway_Exit,
     ObjectID_Hallway_Door_bedroom,
-    ObjectID_Hallway_Door_Broken
+    ObjectID_Hallway_Door_Broken,
+    ObjectID_HomeEntrace,
+    ObjectID_HomeEntrance_trashcan
 };
 
 enum Items

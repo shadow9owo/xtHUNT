@@ -45,7 +45,9 @@ namespace Utils
                 buffer.push_back(ClickableObject(Vector2I(1233  , 209 ), Vector2I(41  , 486 ), ObjectID_Hallway_Door_Broken, WHITE, {192, 192, 192, 64}, 24));
                 return buffer;
             case Map::Map_outsidehome:
-                return {};
+                buffer.push_back(ClickableObject(Vector2I(564 , 153), Vector2I(75  , 83), ObjectID_HomeEntrace, WHITE, {192, 192, 192, 64}, 24));
+                buffer.push_back(ClickableObject(Vector2I(259  , 265), Vector2I(155  , 121), ObjectID_HomeEntrance_trashcan, WHITE, {192, 192, 192, 64}, 24));
+                return buffer;
             case Map::Map_None:
                 return {};
             default:
@@ -66,6 +68,10 @@ namespace Utils
                 return "Click To interact with the Bed";
             case ObjectID_Hallway_Exit:
                 return "Click To Exit The House";
+            case ObjectID_HomeEntrace:
+                return "Click To Enter The House";
+            case ObjectID_HomeEntrance_trashcan:
+                return "Click To search the trash";
             case ObjectID_Hallway_Door_bedroom:
                 return "Click To Enter The Bedroom";
             case ObjectID_Hallway_Door_Broken:
@@ -74,6 +80,19 @@ namespace Utils
                 break;
         }
         return "";
+    }
+
+    std::string search(ObjectIDs object)
+    {
+        switch (object)
+        {
+        case ObjectID_HomeEntrance_trashcan:
+            return "todo implement";
+            break;
+        default:
+            break;
+        }
+        return "undefined";
     }
 
     void ObjectIDClicked(ObjectIDs id)
@@ -97,6 +116,12 @@ namespace Utils
                 return;
             case ObjectIDs::ObjectID_Hallway_Door_Broken:
                 SetMessage("its stuck");
+                return;
+            case ObjectIDs::ObjectID_HomeEntrace:
+                DATA::Vars::currentlocation = Map::Map_Hallway;
+                return;
+            case ObjectIDs::ObjectID_HomeEntrance_trashcan:
+                SetMessage(search(id));
                 return;
             case ObjectIDs::Object_None:
                 return;
