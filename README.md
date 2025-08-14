@@ -3,4 +3,4 @@ joke game
 
 idea :
 - raylib c++
-- bad rpg game  
+- story satire rpg
