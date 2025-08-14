@@ -22,19 +22,20 @@ priest - pedophilic child molester
 
 sekta leader - sociopathic nazi
 
-sekta follower 1 to 4 - are blinded by the sektas goal and does not realize they are being manipulated, not the brightest
+sekta followers (4 total) - are blinded by the sektas goal and does not realize they are being manipulated, not the brightest
 
-generic crackhead 1 to 4 - ||
+generic crackheads (4 total) - ||
 
-crack dealer 1 to 2 - they dont care about consequences of their actions, profit focused
+crack dealers (2 total) - they dont care about consequences of their actions, profit focused
 
-generic store clerk 1 to 4 - ||
+generic store clerks (4 total) - ||
 
 (job) boss - just an micromanaging asshole
 
-generic women 1 to 4 - ||
+generic female (4 total) - ||
 
-generic men 1 to 4 - ||
+generic male (4 total) - ||
+
 
 
 
