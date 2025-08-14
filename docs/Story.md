@@ -25,13 +25,14 @@ sekta follower 1 to 4 - is blinded by the sektas goal and does not realize hes b
 generic crackhead 1 to 4 - ||
 crack dealer - doesnt care about the consequences of his actions is trying to make money of anyone
 
-generic store clerk 1 - 4 - ||
+generic store clerk 1 to 4 - ||
 
 (job) boss - just an micromanaging asshole
 
-generic women 1 - 4 - ||
+generic women 1 to 4 - ||
 
-generic men 1 - 4 - ||
+generic men 1 to 4 - ||
+
 
 
 
