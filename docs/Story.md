@@ -5,7 +5,6 @@ contact : <a href="mailto:shadowdevreal@protonmail.com">main</a> || <a href="htt
 story: 
 
 this games story revolves around the themes of corruption in state and 
-
 corruption in new day and old day religion
 
 basically the games about a town being over ran with fanatics (aka as a sekta) 
@@ -33,4 +32,5 @@ job boss - just an micromanaging asshole
 generic women 1 - 4 - ||
 
 generic men 1 - 4 - ||
+
 
