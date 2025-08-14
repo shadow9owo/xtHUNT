@@ -23,7 +23,7 @@ sekta leader - sociopathic nazi
 sekta follower 1 to 4 - are blinded by the sektas goal and does not realize they are being manipulated , not the brightest
 
 generic crackhead 1 to 4 - ||
-crack dealer - doesnt care about the consequences of his actions is trying to make money of anyone
+crack dealer 1 to 2 - doesnt care about the consequences of his actions is trying to make money of anyone
 
 generic store clerk 1 to 4 - ||
 
@@ -32,6 +32,7 @@ generic store clerk 1 to 4 - ||
 generic women 1 to 4 - ||
 
 generic men 1 to 4 - ||
+
 
 
 
