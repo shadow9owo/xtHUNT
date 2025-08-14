@@ -19,10 +19,13 @@ Characters :
 main character - user defined
 
 priest - pedophilic child molester 
+
 sekta leader - sociopathic nazi
+
 sekta follower 1 to 4 - are blinded by the sektas goal and does not realize they are being manipulated, not the brightest
 
 generic crackhead 1 to 4 - ||
+
 crack dealer 1 to 2 - they dont care about consequences of their actions, profit focused
 
 generic store clerk 1 to 4 - ||
@@ -32,6 +35,7 @@ generic store clerk 1 to 4 - ||
 generic women 1 to 4 - ||
 
 generic men 1 to 4 - ||
+
 
 
 
