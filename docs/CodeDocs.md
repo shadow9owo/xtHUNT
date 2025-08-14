@@ -40,11 +40,14 @@ USE :
 - int GetInternalRenderWidth() { return GAME::target.texture.width; } <br>
 - int GetInternalRenderHeight() { return GAME::target.texture.height; }	TO GET SCREENSIZES!!! 
 
-(DO NOT FORGET) (UTILS.hpp) <br>
+(DO NOT FORGET) (UTILS.hpp) 
+
+
 USE Vector2I GetMousePositionPro() <br>
 to get scaled screensize <br>
 (base hardcoded screensize is 1280x720) <br>
 (UTILS.hpp)
+
 
 
 
