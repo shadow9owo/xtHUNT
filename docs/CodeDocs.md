@@ -4,7 +4,7 @@ contact : <a href="mailto:shadowdevreal@protonmail.com">main</a> || <a href="htt
 
 compiling : 
 - g++ , cmake
-
+<br>
 locations in source code:
 
 UI structs : 
@@ -15,10 +15,8 @@ UI helpers :
 SaveSystem :
 	globalvars.cpp (namespace DATA)
 	(SaveInventoryJson,LoadInventoryJson)
-
-	&
-
-	Save , Load
+ <br>
+ 	Save , Load
 
 Debugging : 
 	%exefile% --debug
@@ -26,22 +24,22 @@ Debugging :
 
 Rendering :
 	Render.cpp
-
+<br>
 	notes when the games started yes a camera
 	is defined but there is no real purpose for it
 	except scaling up to screenres 
-	
-	(DO NOT USE ANY CAMERA
-	FUNCTIONS IF YOU DONT HAVE TO)
-
+	<br>
+	(DO NOT USE ANY CAMERA FUNCTIONS IF YOU DONT HAVE TO)
+<br>
 	notes : 
-		USE : 
-	    int GetInternalRenderWidth() { return GAME::target.texture.width; }
-    int GetInternalRenderHeight() { return GAME::target.texture.height; }	
-	TO GET SCREENSIZES!!! 
+ 		USE : 
+		int GetInternalRenderWidth() { return GAME::target.texture.width; }
+    	int GetInternalRenderHeight() { return GAME::target.texture.height; }	
+		TO GET SCREENSIZES!!! 
+
 (DO NOT FORGET) (UTILS.hpp)
 
 USE Vector2I GetMousePositionPro()
 to get scaled screensize 
 (base hardcoded screensize is 1280x720)
- (UTILS.hpp)
+(UTILS.hpp)
