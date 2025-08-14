@@ -1,10 +1,12 @@
+whats wrong why is the formatting fucked
+
 # PROJECT XTHUNT - CODE DOCS
 developed by shadowdev @ doomgames.cc
 contact : <a href="mailto:shadowdevreal@protonmail.com">main</a> || <a href="https://x.com/DoomGamescc">alternative</a>
 
 compiling : 
 - g++ , cmake
-<br>
+
 locations in source code:
 
 UI structs : 
