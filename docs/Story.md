@@ -18,23 +18,19 @@ Characters :
 
 main character - user defined
 
-priest - pedophilic child molester 
-
-sekta leader - sociopathic nazi
-
+priest - pedophilic child molester <br>
+sekta leader - sociopathic nazi <br>
 sekta followers (4 total) - are blinded by the sektas goal and does not realize they are being manipulated, not the brightest
 
-generic crackheads (4 total) - ||
-
+generic crackheads (4 total) - || <br>
 crack dealers (2 total) - they dont care about consequences of their actions, profit focused
 
-generic store clerks (4 total) - ||
-
+generic store clerks (4 total) - || <br>
 (job) boss - just an micromanaging asshole
 
-generic female (4 total) - ||
-
+generic female (4 total) - || <br>
 generic male (4 total) - ||
+
 
 
 
