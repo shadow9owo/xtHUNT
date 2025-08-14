@@ -5,7 +5,8 @@ contact : <a href="mailto:shadowdevreal@protonmail.com">main</a> || <a href="htt
 is an RPG game which also serves as a commentary on corruption 
 
 faq:
-when is it set to release?:
+<br>
+when is this set to release?:
 - in the summer of 2026
 what game engine are you using?:
 - raylib
