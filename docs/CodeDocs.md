@@ -19,13 +19,13 @@ SaveSystem :
 	(SaveInventoryJson,LoadInventoryJson)
  <br>
  	Save , Load
-
+<br>
 Debugging : 
 	<br>
  - %exefile% --debug
 	<br>
  - (runs in debug mode src in main.cpp)
-
+<br>
 Rendering :
 - Render.cpp
 <br>
@@ -51,6 +51,7 @@ to get scaled screensize
 (base hardcoded screensize is 1280x720)
 <br>
 (UTILS.hpp)
+
 
 
 
