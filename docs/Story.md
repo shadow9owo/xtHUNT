@@ -7,7 +7,7 @@ story:
 this game's story revolves around the themes of corruption in state and<br>
 corruption in new day and old day religion
 
-basically the game's is about a town being over ran with fanatics (aka as a sekta, cult) 
+basically the game's about a town being over ran with fanatics (aka as a sekta, cult) 
 
 // inspired by some fanatics attacking me for no reason
 
@@ -35,6 +35,7 @@ generic store clerks (4 total) - ||
 generic female (4 total) - ||
 
 generic male (4 total) - ||
+
 
 
 
