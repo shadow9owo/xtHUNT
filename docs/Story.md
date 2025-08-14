@@ -7,7 +7,7 @@ story:
 this game's story revolves around the themes of corruption in state and<br>
 corruption in new day and old day religion
 
-basically the game's is about a town being over ran with fanatics (aka as a sekta,cult) 
+basically the game's is about a town being over ran with fanatics (aka as a sekta, cult) 
 
 //inspired by some fanatics attacking me for no reason
 
@@ -32,6 +32,7 @@ job boss - just an micromanaging asshole
 generic women 1 - 4 - ||
 
 generic men 1 - 4 - ||
+
 
 
 
