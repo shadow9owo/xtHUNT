@@ -18,19 +18,16 @@ UI helpers :
 SaveSystem :
 - globalvars.cpp (namespace DATA)
 - (SaveInventoryJson,LoadInventoryJson)
-
 - Save , Load
 
 Debugging : 
-
-- %exefile% --debug
-
+- %exefile% --debug <br>
 - (runs in debug mode src in main.cpp)
 
 Rendering :
 - Render.cpp
 
-notes when the games started yes a camera
+notes when the games started yes a camera <br>
 is defined but there is no real purpose for it
 
 except scaling up to screenres 
@@ -40,19 +37,15 @@ except scaling up to screenres
 notes :
 
 USE :
-- int GetInternalRenderWidth() { return GAME::target.texture.width; }
-
+- int GetInternalRenderWidth() { return GAME::target.texture.width; } <br>
 - int GetInternalRenderHeight() { return GAME::target.texture.height; }	TO GET SCREENSIZES!!! 
 
-(DO NOT FORGET) (UTILS.hpp)
-
-USE Vector2I GetMousePositionPro()
-
-to get scaled screensize 
-
-(base hardcoded screensize is 1280x720)
-
+(DO NOT FORGET) (UTILS.hpp) <br>
+USE Vector2I GetMousePositionPro() <br>
+to get scaled screensize <br>
+(base hardcoded screensize is 1280x720) <br>
 (UTILS.hpp)
+
 
 
 
