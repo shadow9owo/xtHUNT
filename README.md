@@ -8,7 +8,9 @@ faq:
 
 when is this set to release?:
 - in the summer of 2026
+
 what game engine are you using?:
 - raylib
+
 what code editor are you using?:
 - mostly vs code
