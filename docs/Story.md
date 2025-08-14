@@ -13,7 +13,7 @@ basically the game's is about a town being over ran with fanatics (aka as a sekt
 
 satarical commentary on corruption
 
-{ is subject to change }
+{ is subject to change } <br>
 Characters :
 
 main character - user defined
@@ -35,6 +35,7 @@ generic store clerks (4 total) - ||
 generic female (4 total) - ||
 
 generic male (4 total) - ||
+
 
 
 
