@@ -1,8 +1,8 @@
 # PROJECT XTHUNT - CODE DOCS
 
-developed by shadowdev @ doomgames.cc
-
+developed by shadowdev @ doomgames.cc <br>
 contact : <a href="mailto:shadowdevreal@protonmail.com">main</a> || <a href="https://x.com/DoomGamescc">alternative</a>
+
 
 compiling : 
 - g++ , cmake
@@ -53,6 +53,7 @@ to get scaled screensize
 (base hardcoded screensize is 1280x720)
 
 (UTILS.hpp)
+
 
 
 
