@@ -1,5 +1,5 @@
 # PROJECT XTHUNT - Story
-developed by shadowdev @ doomgames.cc
+developed by shadowdev @ doomgames.cc <br>
 contact : <a href="mailto:shadowdevreal@protonmail.com">main</a> || <a href="https://x.com/DoomGamescc">alternative</a>
 
 story: 
@@ -32,6 +32,7 @@ job boss - just an micromanaging asshole
 generic women 1 - 4 - ||
 
 generic men 1 - 4 - ||
+
 
 
 
