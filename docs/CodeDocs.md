@@ -15,32 +15,34 @@ UI helpers :
 - Renderer.hpp (namespace UI_elements)
 <br>
 SaveSystem :
-	globalvars.cpp (namespace DATA)
-	(SaveInventoryJson,LoadInventoryJson)
- <br>
- 	Save , Load
+- globalvars.cpp (namespace DATA)
+- (SaveInventoryJson,LoadInventoryJson)
+<br>
+- Save , Load
 <br>
 Debugging : 
-	<br>
- - %exefile% --debug
-	<br>
- - (runs in debug mode src in main.cpp)
+<br>
+- %exefile% --debug
+<br>
+- (runs in debug mode src in main.cpp)
 <br>
 Rendering :
 - Render.cpp
 <br>
-	notes when the games started yes a camera
-	is defined but there is no real purpose for it
-	except scaling up to screenres 
-	<br>
-	(DO NOT USE ANY CAMERA FUNCTIONS IF YOU DONT HAVE TO)
-	<br>
-	notes :
+notes when the games started yes a camera
 <br>
-   USE :
+is defined but there is no real purpose for it
+<br>
+except scaling up to screenres 
+<br>
+(DO NOT USE ANY CAMERA FUNCTIONS IF YOU DONT HAVE TO)
+<br>
+notes :
+<br>
+USE :
 - int GetInternalRenderWidth() { return GAME::target.texture.width; }
-- int GetInternalRenderHeight() { return GAME::target.texture.height; }	
-		TO GET SCREENSIZES!!! 
+<br>
+- int GetInternalRenderHeight() { return GAME::target.texture.height; }	TO GET SCREENSIZES!!! 
 <br>
 (DO NOT FORGET) (UTILS.hpp)
 <br>
@@ -51,6 +53,7 @@ to get scaled screensize
 (base hardcoded screensize is 1280x720)
 <br>
 (UTILS.hpp)
+
 
 
 
