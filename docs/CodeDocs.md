@@ -35,9 +35,9 @@ Rendering :
 	<br>
 	(DO NOT USE ANY CAMERA FUNCTIONS IF YOU DONT HAVE TO)
 	<br>
-	notes : 
- 	<br>
-   USE : 
+	notes :
+<br>
+   USE :
 - int GetInternalRenderWidth() { return GAME::target.texture.width; }
 - int GetInternalRenderHeight() { return GAME::target.texture.height; }	
 		TO GET SCREENSIZES!!! 
@@ -51,6 +51,7 @@ to get scaled screensize
 (base hardcoded screensize is 1280x720)
 <br>
 (UTILS.hpp)
+
 
 
 
