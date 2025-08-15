@@ -53,7 +53,6 @@ namespace Renderer
             
             if (hovering || IsMouseButtonDown(MOUSE_LEFT_BUTTON))
             {
-        
                 Texture a = Textures::textures[TexturesEnum::CursorGrab].TextureData;
 
                 DrawTexturePro(
@@ -152,14 +151,25 @@ namespace Renderer
             };
             if (CheckCollisionRecs({(float)pos.x,(float)pos.y,4,4},buttonRect))
             {
-                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+                if (!DATA::Vars::paused)
                 {
-                    Utils::ObjectIDClicked((ObjectIDs)i.id);
+                    if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+                    {
+                        Utils::ObjectIDClicked((ObjectIDs)i.id);
+                    }
+                    Renderer::UI_Elements::RenderToolTip(Utils::ObjectIDToSTR((ObjectIDs)i.id));
                 }
-                Renderer::UI_Elements::RenderToolTip(Utils::ObjectIDToSTR((ObjectIDs)i.id));
             }
         }
         UI_Elements::RenderMessage();
+        return;
+    }
+
+    void paused() // render pause menu
+    {
+        DrawRectangle(0, 0, Utils::GetInternalRenderWidth(), Utils::GetInternalRenderHeight(), {0, 0, 0, 128});
+        DrawText("Paused", 0,0, 48, WHITE);
+
         return;
     }
 

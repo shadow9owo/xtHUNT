@@ -23,6 +23,12 @@ namespace INPUT
                 SetWindowSize(DATA::Vars::Consts::win[0], DATA::Vars::Consts::win[1]);
             }
         }
+
+        if (IsKeyPressed(KEY_ESCAPE))
+        {
+            DATA::Vars::paused = !DATA::Vars::paused;
+        }
+
         if (IsMouseButtonDown(1))
         {
             Utils::ClearMessage();

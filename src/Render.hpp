@@ -19,4 +19,5 @@ namespace Renderer
     extern void RenderWorld();
     extern void RenderUIOverlay();
     extern void RenderUI(); 
+    extern void paused();
 }

@@ -7,10 +7,11 @@ namespace DATA
     {
         extern bool debug;
         extern bool running;
+        extern bool paused;
         extern bool isfullscreen;
         extern Scenes currentScene;
         extern Map currentlocation;
-        extern std::vector<Items> Inventory;
+        extern Inventory plr_Inventory;
 
         extern std::vector<Vector2I> placementbuffer;
 

@@ -13,9 +13,10 @@ namespace DATA
         bool debug = false;
         bool running = true;
         bool isfullscreen = true;
+        bool paused = false;
         Scenes currentScene = Scene_MainMenu;
         Map currentlocation = Map::Map_None;
-        std::vector<Items> Inventory;
+        Inventory plr_Inventory;
 
         std::vector<Vector2I> placementbuffer;
 
@@ -32,55 +33,26 @@ namespace DATA
     void LoadInventoryJson()
     {
         std::ifstream file("inventory.json");
-        if (!file.is_open()) {
-            return;
-        }
+        if (!file.is_open()) return;
 
-        json root;
-        try
-        {
-            file >> root;
-        }
-        catch (const json::parse_error& e)
-        {
-            std::cerr << "JSON parse error: " << e.what() << "\n";
-            return;
-        }
+        json j;
+        try { file >> j; } 
+        catch (const json::parse_error& e) { std::cerr << e.what(); return; }
         file.close();
 
-        Vars::Inventory.clear();
-
-        if (root.contains("Items") && root["Items"].is_array())
-        {
-            for (const auto& item : root["Items"])
-            {
-                if (item.is_number_integer())
-                {
-                    Items e = static_cast<Items>(item.get<int>());
-                    Vars::Inventory.push_back(e);
-                }
-            }
-        }
+        Vars::plr_Inventory.fromJson(j);
     }
 
     void SaveInventoryJson()
     {
-        json root;
-        root["Items"] = json::array();
-
-        for (const auto& item : Vars::Inventory)
-        {
-            root["Items"].push_back(static_cast<int>(item));
-        }
-
         std::ofstream file("inventory.json");
-        if (!file.is_open()) {
-            return;
-        }
+        if (!file.is_open()) return;
 
-        file << root.dump(2);
+        json j = Vars::plr_Inventory.toJson();
+        file << j.dump();
         file.close();
     }
+
 
     int Load()
     {

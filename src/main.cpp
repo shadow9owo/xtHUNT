@@ -86,6 +86,17 @@ namespace GAME
             
             Renderer::RenderUIOverlay();
             
+            if (DATA::Vars::paused) 
+            { 
+                if (DATA::Vars::currentScene == Scene_Game)
+                {
+                    Renderer::paused();
+                }else 
+                {
+                    DATA::Vars::paused = false;
+                }
+            }
+
             EndTextureMode();
 
             Utils::updatetimers();

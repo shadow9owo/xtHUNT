@@ -87,7 +87,12 @@ namespace Utils
         switch (object)
         {
         case ObjectID_HomeEntrance_trashcan:
-            return "todo implement";
+            if (DATA::Vars::plr_Inventory.getItem(Item_ID::Item_Stick) != nullptr)
+            {
+                return "its just trash..";
+            }
+            DATA::Vars::plr_Inventory.addItem({Item_ID::Item_Stick, Item_Type::Weapon,Item_Rarity_Common, 1, false});
+            return "you found a stick, looks sharp you could stab someone with it";
             break;
         default:
             break;
@@ -97,6 +102,7 @@ namespace Utils
 
     void ObjectIDClicked(ObjectIDs id)
     {
+        Utils::ClearMessage();
         switch (id)
         {
             case ObjectIDs::ObjectID_Home_Bed:
