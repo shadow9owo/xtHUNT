@@ -41,14 +41,14 @@ namespace INPUT
                 if (DATA::Vars::placementbuffer.size() > 1)
                 {
                     DATA::Vars::placementbuffer.clear();
-                    LOGGER::Log("cleared buffer");
+                    LOGGER::LogDEBUG("cleared buffer");
                 }
-                LOGGER::Log("added pos to buffer");
+                LOGGER::LogDEBUG("added pos to buffer");
                 DATA::Vars::placementbuffer.push_back(Utils::GetMousePositionPro());
             }
             if (DATA::Vars::placementbuffer.size() > 1 && IsKeyPressed(KEY_C))
             {
-                LOGGER::Log("clipboard set");
+                LOGGER::LogDEBUG("clipboard set");
                 std::string result =
                     std::to_string(DATA::Vars::placementbuffer.at(0).x) + "X\n" +
                     std::to_string(DATA::Vars::placementbuffer.at(0).y) + "Y\n" +

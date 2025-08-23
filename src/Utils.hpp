@@ -21,4 +21,6 @@ namespace Utils
 
     extern int GetInternalRenderWidth();
     extern int GetInternalRenderHeight();
+
+    extern bool CanInteractWithWorld();
 }

@@ -6,6 +6,15 @@
 
 using json = nlohmann::json;
 
+enum Character_Mood
+{
+    Mood_None = 0,
+    Mood_Angry,
+    Mood_Confused,
+    Mood_Sad
+};
+
+//math struct
 struct Vector2I
 {
     int x;
@@ -13,6 +22,78 @@ struct Vector2I
 
     Vector2I(int x, int y) : x(x), y(y) {}
 };
+
+//dialogue system structs
+struct DialogueOption
+{
+    std::string text;        
+    Character_Mood mood;     
+    int nextIndex;           
+};
+
+struct DialogueText
+{
+    std::vector<DialogueOption> options;
+};
+
+
+enum Characters
+{
+    //NPCs
+    Characters_Undefined = 0,
+    Characters_None,
+    Characters_sekta_priest,
+    Characters_sekta_leader,
+    Characters_sekta_follower_0,
+    Characters_sekta_follower_1,
+    Characters_sekta_follower_2,
+    Characters_sekta_follower_3,
+    Characters_crack_dealer_0,
+    Characters_crack_dealer_1,
+    Characters_crackhead_0,
+    Characters_crackhead_1,
+    Characters_crackhead_2,
+    Characters_crackhead_3,
+    Characters_storeclerk_0,
+    Characters_storeclerk_1,
+    Characters_storeclerk_2,
+    Characters_storeclerk_3,
+    Characters_job_boss,
+    Characters_female_0,
+    Characters_female_1,
+    Characters_female_2,
+    Characters_female_3,
+    Characters_male_0,
+    Characters_male_1,
+    Characters_male_2,
+    Characters_male_3
+};
+
+enum DialogueState
+{
+    DialogueState_Talking,
+    DialogueState_Choice,
+    DialogueState_Finished
+};
+
+enum DialogueID
+{
+    DialogueID_None = 0,
+    DialogueID_Intro
+};
+
+struct DialogueTree
+{
+    std::vector<DialogueText> texts;
+    Characters Character;
+    Character_Mood mood;
+    DialogueState state = DialogueState_Finished;
+    int currentLine = 0;
+    DialogueID id;
+};
+
+
+//UI elements structs
 
 struct Button
 {
@@ -40,6 +121,8 @@ struct ClickableObject
         : position(pos), size(sz), id(id2), fontColor(fColor), bgColor(bColor), fontSize(fSize) {}
 };
 
+//game states
+
 enum Scenes
 {
     Scene_MainMenu,
@@ -58,6 +141,8 @@ enum ObjectIDs
     ObjectID_HomeEntrace,
     ObjectID_HomeEntrance_trashcan
 };
+
+//inventory system structs
 
 enum Item_Type
 {
@@ -145,6 +230,14 @@ struct Inventory
     }
 };
 
+enum Game_Difficulty
+{
+    D_Undefined = 0,
+    D_Normal = 1,
+    D_Hard,
+    D_Impossible // 2 lazy 2 implement you can change this in the ini file but prob will stay unimplemented so if youre reading this then yea there was suppoused to be an harder difficulty than hard
+};
+
 enum Map
 {
     Map_None,
@@ -152,6 +245,67 @@ enum Map
     Map_Hallway,
     Map_outsidehome
 };
+
+struct Npc_t
+{
+    Characters character;
+    bool alive;
+};
+
+struct Population
+{
+    std::vector<Npc_t> npcs;
+};
+
+struct Game_State //save this
+{
+    Scenes currentScene;
+    Map currentLocation;
+    Inventory playerInventory;
+    Population population;
+    Game_Difficulty difficulty;
+
+        json toJson() const {
+        json j;
+        j["currentScene"] = static_cast<int>(currentScene); 
+        j["currentLocation"] = static_cast<int>(currentLocation);
+        j["difficulty"] = static_cast<int>(difficulty);
+        j["playerInventory"] = playerInventory.toJson();
+
+        // Population
+        json jPopulation = json::array();
+        for (const auto& npc : population.npcs) {
+            jPopulation.push_back({
+                {"character", static_cast<int>(npc.character)},
+                {"alive", npc.alive}
+            });
+        }
+        j["population"] = jPopulation;
+
+        return j;
+    }
+
+    void fromJson(const json& j) {
+        currentScene = static_cast<Scenes>(j.value("currentScene", 0));
+        currentLocation = static_cast<Map>(j.value("currentLocation", 0));
+        difficulty = static_cast<Game_Difficulty>(j.value("difficulty", 0));
+
+        if (j.contains("playerInventory"))
+            playerInventory.fromJson(j["playerInventory"]);
+
+        population.npcs.clear();
+        if (j.contains("population")) {
+            for (const auto& jNpc : j["population"]) {
+                Npc_t npc;
+                npc.character = static_cast<Characters>(jNpc.value("character", 0));
+                npc.alive = jNpc.value("alive", true);
+                population.npcs.push_back(npc);
+            }
+        }
+    }
+};
+
+// textures
 
 enum TexturesEnum
 {

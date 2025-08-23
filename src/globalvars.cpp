@@ -16,8 +16,17 @@ namespace DATA
         bool paused = false;
         Scenes currentScene = Scene_MainMenu;
         Map currentlocation = Map::Map_None;
-        Inventory plr_Inventory;
 
+        bool savefilecorruptionprevention = true;
+
+        Game_Difficulty difficulty = D_Undefined;
+
+        bool halt = false;
+        
+        Population population;
+        Inventory plr_Inventory;
+        Game_State gamestate;
+        
         std::vector<Vector2I> placementbuffer;
 
         std::string Message;
@@ -30,29 +39,26 @@ namespace DATA
         }
     }
 
-    void LoadInventoryJson()
-    {
-        std::ifstream file("inventory.json");
+    void SaveGameState(const Game_State& state) {
+        std::ofstream file("./saves/gamestate.json");
         if (!file.is_open()) return;
 
-        json j;
-        try { file >> j; } 
-        catch (const json::parse_error& e) { std::cerr << e.what(); return; }
-        file.close();
-
-        Vars::plr_Inventory.fromJson(j);
-    }
-
-    void SaveInventoryJson()
-    {
-        std::ofstream file("inventory.json");
-        if (!file.is_open()) return;
-
-        json j = Vars::plr_Inventory.toJson();
+        json j = state.toJson();
         file << j.dump();
         file.close();
     }
 
+    void LoadGameState(Game_State& state) {
+        std::ifstream file("./saves/gamestate.json");
+        if (!file.is_open()) return;
+
+        json j;
+        try { file >> j; } 
+        catch (const json::parse_error& e) { std::cerr << e.what() << '\n'; return; }
+        file.close();
+
+        state.fromJson(j);
+    }
 
     int Load()
     {
@@ -99,14 +105,44 @@ namespace DATA
             }
         }
 
-        LoadInventoryJson();
+        if (DG2D::INI::getvalue("savefilecorruptionprevention",tmpbuffer) == false)
+        {
+            DG2D::INI::setvalue("savefilecorruptionprevention", "true");
+        }else {
+            DG2D::INI::getvalue("savefilecorruptionprevention",tmpbuffer);
+
+            if (tmpbuffer == "false")
+            {
+                Vars::savefilecorruptionprevention = false;
+            }
+            else
+            {
+                Vars::savefilecorruptionprevention = true;
+            }
+        }
 
         return 0;
     }
 
+    void LoadGameData()
+    {
+        LoadGameState(Vars::gamestate);
+        Vars::plr_Inventory = Vars::gamestate.playerInventory;
+        Vars::gamestate.population = Vars::population;
+        Vars::difficulty = Vars::gamestate.difficulty;
+        Vars::currentlocation = Vars::gamestate.currentLocation;
+        Vars::currentScene = Scene_MainMenu; //always start in menu
+        return;
+    }
+
     int Save()
     {
-        SaveInventoryJson();
+        Vars::gamestate.population = Vars::population;
+        Vars::currentScene = Scene_MainMenu; //starts in menu so force it
+        Vars::gamestate.difficulty = Vars::difficulty;
+        Vars::gamestate.currentLocation = Vars::currentlocation;
+        Vars::gamestate.playerInventory = Vars::plr_Inventory;
+        SaveGameState(Vars::gamestate);
 
         DG2D::INI::setvalue("isfullscreen", Vars::isfullscreen ? "true" : "false");
 

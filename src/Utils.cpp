@@ -6,6 +6,7 @@
 #include "logger.hpp"
 #include "cmath"
 #include "main.hpp"
+#include "Npc.hpp"
 
 namespace Utils
 {
@@ -27,6 +28,10 @@ namespace Utils
     }
     std::vector<ClickableObject> GetButtons(Map map)
     {
+        if (!CanInteractWithWorld())
+        {
+            return {};
+        }
         std::vector<ClickableObject> buffer;
         if (buffer.size() > 0)
         {
@@ -51,13 +56,17 @@ namespace Utils
             case Map::Map_None:
                 return {};
             default:
-                LOGGER::Log("Unknown map in Utils::GetButtons()");
+                LOGGER::LogERROR("Unknown map in Utils::GetButtons()");
                 return {};
         }
         return {};
     }
     std::string ObjectIDToSTR(ObjectIDs id)
     {
+        if (!CanInteractWithWorld())
+        {
+            return "";
+        }
         switch (id)
         {
             case ObjectID_Home_Door:
@@ -198,4 +207,9 @@ namespace Utils
 
     int GetInternalRenderWidth() { return GAME::target.texture.width; }
     int GetInternalRenderHeight() { return GAME::target.texture.height; }
+
+    bool CanInteractWithWorld()
+    {
+        return Npc::currentDialogue.state == DialogueState_Finished || Npc::currentDialogue.texts.empty(); 
+    }
 }

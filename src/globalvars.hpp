@@ -13,11 +13,20 @@ namespace DATA
         extern Map currentlocation;
         extern Inventory plr_Inventory;
 
+        extern Game_Difficulty difficulty;
+
+        extern bool savefilecorruptionprevention;
+
+        extern Population population;
+        extern Game_State gamestate;
+
         extern std::vector<Vector2I> placementbuffer;
 
         extern std::string Message;
 
         extern float UIfloattimer;
+
+        extern bool halt;
 
         namespace Consts
         {
@@ -25,6 +34,7 @@ namespace DATA
         }
     }
 
+    extern void LoadGameData();
     extern int Load();
     extern int Save();
 }

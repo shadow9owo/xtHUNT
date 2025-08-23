@@ -7,6 +7,19 @@
 #include <iostream>
 #include "Textures.hpp"
 #include <cmath>
+#include "IO.hpp"
+#include <stdexcept>
+#include <iostream>
+#include <cstdlib>
+
+#define ASSERT_RELEASE(cond, msg) \
+    do { \
+        if (!(cond)) { \
+            std::cerr << "FATAL ERROR: " << (msg) << " (" << __FILE__ << ":" << __LINE__ << ")\n"; \
+            std::abort(); \
+        } \
+    } while(0)
+
 
 namespace Renderer
 {
@@ -132,7 +145,7 @@ namespace Renderer
                 EndMode2D();
                 return;
             default:
-                LOGGER::Log("something went really wrong i fucking hate this (Void Renderer::RenderWorld())");
+                LOGGER::LogERROR("something went really wrong i fucking hate this (Void Renderer::RenderWorld())");
                 return;
         }
         return;
@@ -228,10 +241,22 @@ namespace Renderer
                 }
 
                 if (Renderer::UI_Elements::IsButtonClicked(Startbtn))
-                {
+                {                    
+                    if (!IO::FolderExists("./saves"))
+                    {
+                        if (IO::CreateFolder("./saves"))
+                        {
+                            LOGGER::LogDEBUG("Created saves folder");
+                        }else {
+                            LOGGER::LogDEBUG("!!!Failed to create saves folder!!!"); //crashfast
+                            DATA::Vars::halt = true;
+                        }
+                    }
+
+                    DATA::LoadGameData();
                     DATA::Vars::currentlocation = Map::Map_Home;
                     DATA::Vars::currentScene = Scene_Game;
-                    LOGGER::Log("Starting game...");
+                    
                 }
                 
                 if (Renderer::UI_Elements::IsButtonHovered(Exitbtn)) //cool hover effect
@@ -247,7 +272,7 @@ namespace Renderer
                 if (Renderer::UI_Elements::IsButtonClicked(Exitbtn))
                 {
                     DATA::Vars::running = false;
-                    LOGGER::Log("Exiting game...");
+                    LOGGER::LogDEBUG("Exiting game...");
                 }
 
                 DrawTextPro(GetFontDefault(),Utils::getinfo().c_str(),{0,720-24},{0,0},0,24,0.2f,WHITE);
@@ -255,7 +280,7 @@ namespace Renderer
             case Scene_Game:
                 return;
             default:
-                LOGGER::Log("something went really wrong i fucking hate this (Void Renderer::RenderUI())");
+                LOGGER::LogERROR("something went really wrong i fucking hate this (Void Renderer::RenderUI())");
                 return;
         }
 
