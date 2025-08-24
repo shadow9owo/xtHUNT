@@ -1,0 +1,2 @@
+/Users/kofi/Downloads/w64devkit/bin/ar.exe qc libRender.a CMakeFiles/Render.dir/Render.cpp.obj
+/Users/kofi/Downloads/w64devkit/bin/ranlib.exe libRender.a

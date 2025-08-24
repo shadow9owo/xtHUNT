@@ -1,0 +1,348 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "src/game.exe"
+		},
+		{
+			"path" : "src/game.pdb"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"install",
+			"target_link_libraries",
+			"add_compile_options"
+		],
+		"files" : 
+		[
+			"src/CMakeLists.txt",
+			"C:/Users/kofi/Downloads/xtHUNT.tar/build/_deps/raylib-src/src/CMakeLists.txt",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 45,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 88,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 47,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 57,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 94,
+				"parent" : 5
+			},
+			{
+				"file" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 5,
+				"parent" : 7
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"backtrace" : 8,
+					"fragment" : "-O3"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 3,
+					"define" : "GRAPHICS_API_OPENGL_33"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "PLATFORM_DESKTOP"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 3,
+					"path" : "C:/Users/kofi/Downloads/xtHUNT.tar/build/_deps/raylib-src/src"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "C:/Users/kofi/Downloads/xtHUNT.tar/build/_deps/raylib-src/src/external/glfw/include"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "spreitesheet::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "tinyxml2::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "Utils::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "Render::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "logger::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "Npc::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "Textures::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "globalvars::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "IO::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "ini::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "Input::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "raylib::@4dc3a4644cf4ded08c01"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "glfw::@9de86fbe87260ae8e66c"
+		}
+	],
+	"id" : "game::@145eef247bfb46b6828c",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "bin"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "C:/Program Files (x86)/game"
+		}
+	},
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"backtrace" : 3,
+				"fragment" : "../_deps/raylib-build/raylib/libraylib.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lopengl32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "libglobalvars.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "libini.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "libInput.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "libIO.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "liblogger.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "libNpc.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "libRender.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "libspreitesheet.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "libTextures.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "libtinyxml2.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "libUtils.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-lgdi32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-lwinmm",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "libglobalvars.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "libini.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "libInput.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "libIO.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "liblogger.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "libNpc.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "../_deps/raylib-build/raylib/libraylib.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lopengl32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lglu32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-lwinmm",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "game",
+	"nameOnDisk" : "game.exe",
+	"paths" : 
+	{
+		"build" : "src",
+		"source" : "src"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/main.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

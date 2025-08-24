@@ -1,0 +1,2 @@
+/Users/kofi/Downloads/w64devkit/bin/ar.exe qc liblogger.a CMakeFiles/logger.dir/logger.cpp.obj
+/Users/kofi/Downloads/w64devkit/bin/ranlib.exe liblogger.a

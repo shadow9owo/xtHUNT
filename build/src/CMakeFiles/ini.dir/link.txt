@@ -1,0 +1,2 @@
+/Users/kofi/Downloads/w64devkit/bin/ar.exe qc libini.a CMakeFiles/ini.dir/ini.cpp.obj
+/Users/kofi/Downloads/w64devkit/bin/ranlib.exe libini.a

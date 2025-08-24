@@ -1,0 +1,12 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/shadowdev/Desktop/xtHUNT.tar/xtHUNT/build/cmake_install.cmake",
+		"C:/Users/shadowdev/Desktop/xtHUNT.tar/xtHUNT/build/src/cmake_install.cmake",
+		"C:/Users/shadowdev/Desktop/xtHUNT.tar/xtHUNT/build/_deps/raylib-build/cmake_install.cmake",
+		"C:/Users/shadowdev/Desktop/xtHUNT.tar/xtHUNT/build/_deps/raylib-build/raylib/cmake_install.cmake",
+		"C:/Users/shadowdev/Desktop/xtHUNT.tar/xtHUNT/build/_deps/raylib-build/raylib/external/glfw/cmake_install.cmake",
+		"C:/Users/shadowdev/Desktop/xtHUNT.tar/xtHUNT/build/_deps/raylib-build/raylib/external/glfw/src/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

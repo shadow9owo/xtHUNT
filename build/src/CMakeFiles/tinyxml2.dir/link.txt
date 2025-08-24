@@ -1,0 +1,2 @@
+/Users/kofi/Downloads/w64devkit/bin/ar.exe qc libtinyxml2.a CMakeFiles/tinyxml2.dir/tinyxml2.cpp.obj
+/Users/kofi/Downloads/w64devkit/bin/ranlib.exe libtinyxml2.a

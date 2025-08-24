@@ -1,0 +1,2 @@
+/Users/kofi/Downloads/w64devkit/bin/ar.exe qc libUtils.a CMakeFiles/Utils.dir/Utils.cpp.obj
+/Users/kofi/Downloads/w64devkit/bin/ranlib.exe libUtils.a

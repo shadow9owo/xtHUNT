@@ -1,0 +1,304 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "src",
+					"childIndexes" : 
+					[
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-src-c28ad825afa61f1c27a2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						8,
+						9,
+						10,
+						12,
+						13
+					]
+				},
+				{
+					"build" : "_deps/raylib-build",
+					"childIndexes" : 
+					[
+						3
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.raylib-build-bf7fddf725c5e36192cc.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.25"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "C:/Users/kofi/Downloads/xtHUNT.tar/build/_deps/raylib-src"
+				},
+				{
+					"build" : "_deps/raylib-build/raylib",
+					"childIndexes" : 
+					[
+						4
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.raylib-build.raylib-1a0424e4ebcb8ee70443.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.25"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 1,
+					"source" : "C:/Users/kofi/Downloads/xtHUNT.tar/build/_deps/raylib-src/src",
+					"targetIndexes" : 
+					[
+						11
+					]
+				},
+				{
+					"build" : "_deps/raylib-build/raylib/external/glfw",
+					"childIndexes" : 
+					[
+						5
+					],
+					"jsonFile" : "directory-_deps.raylib-build.raylib.external.glfw-a2b2df8d5c537dff1b1a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 2,
+					"source" : "C:/Users/kofi/Downloads/xtHUNT.tar/build/_deps/raylib-src/src/external/glfw"
+				},
+				{
+					"build" : "_deps/raylib-build/raylib/external/glfw/src",
+					"jsonFile" : "directory-_deps.raylib-build.raylib.external.glfw.src-b8e46a33898e15cf0c83.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 2,
+					"source" : "C:/Users/kofi/Downloads/xtHUNT.tar/build/_deps/raylib-src/src/external/glfw/src",
+					"targetIndexes" : 
+					[
+						7,
+						14
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "game",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						8,
+						9,
+						10,
+						12,
+						13
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						2
+					],
+					"directoryIndexes" : 
+					[
+						2,
+						3
+					],
+					"name" : "raylib",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						11
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						4,
+						5
+					],
+					"name" : "GLFW",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						7,
+						14
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "IO::@145eef247bfb46b6828c",
+					"jsonFile" : "target-IO-986818ec675ec6376d13.json",
+					"name" : "IO",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "Input::@145eef247bfb46b6828c",
+					"jsonFile" : "target-Input-69ad07cf19b1a4c5a98c.json",
+					"name" : "Input",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "Npc::@145eef247bfb46b6828c",
+					"jsonFile" : "target-Npc-3b46d9044242f898dd17.json",
+					"name" : "Npc",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "Render::@145eef247bfb46b6828c",
+					"jsonFile" : "target-Render-393c300b37742dd6e7fe.json",
+					"name" : "Render",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "Textures::@145eef247bfb46b6828c",
+					"jsonFile" : "target-Textures-789fc8743da1f9102acd.json",
+					"name" : "Textures",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "Utils::@145eef247bfb46b6828c",
+					"jsonFile" : "target-Utils-39c93793c8acf56ca3d6.json",
+					"name" : "Utils",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "game::@145eef247bfb46b6828c",
+					"jsonFile" : "target-game-6d2ead6a6bbb3df472a6.json",
+					"name" : "game",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "glfw::@9de86fbe87260ae8e66c",
+					"jsonFile" : "target-glfw-f283471be2b0baf46b30.json",
+					"name" : "glfw",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "globalvars::@145eef247bfb46b6828c",
+					"jsonFile" : "target-globalvars-4225f2c63c1f5ed571df.json",
+					"name" : "globalvars",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ini::@145eef247bfb46b6828c",
+					"jsonFile" : "target-ini-5edd292266a5fb5e207d.json",
+					"name" : "ini",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "logger::@145eef247bfb46b6828c",
+					"jsonFile" : "target-logger-4e105a4b17bf59829942.json",
+					"name" : "logger",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "raylib::@4dc3a4644cf4ded08c01",
+					"jsonFile" : "target-raylib-2385c9063b5d6f48ae46.json",
+					"name" : "raylib",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "spreitesheet::@145eef247bfb46b6828c",
+					"jsonFile" : "target-spreitesheet-a169132c0695099bd306.json",
+					"name" : "spreitesheet",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "tinyxml2::@145eef247bfb46b6828c",
+					"jsonFile" : "target-tinyxml2-5e89b6009b5717ddcd8d.json",
+					"name" : "tinyxml2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "update_mappings::@9de86fbe87260ae8e66c",
+					"jsonFile" : "target-update_mappings-8b8318b2e93ae2142175.json",
+					"name" : "update_mappings",
+					"projectIndex" : 2
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/kofi/Downloads/xtHUNT.tar/build",
+		"source" : "C:/Users/kofi/Downloads/xtHUNT.tar/xtHUNT"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 8
+	}
+}
