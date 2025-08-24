@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/shadowdev/Desktop/xthunt/_deps/raylib-subbuild/CMakeFiles/raylib-populate"
+		},
+		{
+			"file" : "C:/Users/shadowdev/Desktop/xthunt/_deps/raylib-subbuild/CMakeFiles/0ed55a69c86598502089fa823449e481/raylib-populate.rule"
+		},
+		{
+			"file" : "C:/Users/shadowdev/Desktop/xthunt/_deps/raylib-subbuild/CMakeFiles/4cb240d0d263c85c9a5f0348ac9157ea/raylib-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/shadowdev/Desktop/xthunt/_deps/raylib-subbuild/CMakeFiles/62386f46622394fb353bae0609d31b22/raylib-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/shadowdev/Desktop/xthunt/_deps/raylib-subbuild/CMakeFiles/62386f46622394fb353bae0609d31b22/raylib-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/shadowdev/Desktop/xthunt/_deps/raylib-subbuild/CMakeFiles/62386f46622394fb353bae0609d31b22/raylib-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/shadowdev/Desktop/xthunt/_deps/raylib-subbuild/CMakeFiles/62386f46622394fb353bae0609d31b22/raylib-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/shadowdev/Desktop/xthunt/_deps/raylib-subbuild/CMakeFiles/62386f46622394fb353bae0609d31b22/raylib-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/shadowdev/Desktop/xthunt/_deps/raylib-subbuild/CMakeFiles/62386f46622394fb353bae0609d31b22/raylib-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/shadowdev/Desktop/xthunt/_deps/raylib-subbuild/CMakeFiles/62386f46622394fb353bae0609d31b22/raylib-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/shadowdev/Desktop/xthunt/_deps/raylib-subbuild/CMakeFiles/62386f46622394fb353bae0609d31b22/raylib-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"raylib-populate"
+		],
+		"name" : "raylib-populate"
+	}
+}
