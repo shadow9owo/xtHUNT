@@ -7,6 +7,11 @@ namespace spritesheet
     // to do implement
     Vector4 GetSpritePosFromSpritesheet(Sprites sprite)
     {
+        switch (sprite) //todo
+        {
+            default:
+                 break;
+        }
         return Vector4{0, 0, 0, 0};
     }
 
