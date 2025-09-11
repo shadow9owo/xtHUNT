@@ -242,8 +242,8 @@ enum Map
 {
     Map_None,
     Map_Home,
-    Map_Hallway,
-    Map_outsidehome
+    Map_Hallway, //todo add a home prefix
+    Map_outsidehome //-||-
 };
 
 struct Npc_t
