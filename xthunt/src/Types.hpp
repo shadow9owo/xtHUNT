@@ -242,8 +242,30 @@ enum Map
 {
     Map_None,
     Map_Home,
+    Map_Home_basement_end, //boss room
     Map_Hallway, //todo add a home prefix
-    Map_outsidehome //-||-
+    Map_outsidehome, //-||-
+
+    Map_Bar_entrance,
+    Map_Bar_inside,
+
+    Map_GunShop_entrance,
+    Map_GunShop_alley,
+    Map_GunShop_inside,
+    Map_GunShop_inside_beside,
+
+    Map_hospital_entrance,
+    Map_hospital_hallway,
+    Map_hospital_room_1,
+    Map_hospital_room_2,
+    Map_hospital_room_3,
+    Map_hospital_room_storage_room,
+    Map_hospital_room_emergency_room,
+    Map_hospital_room_surgery_room, //cant speak 4 shit
+
+    Map_Dream_Sequence_1,
+    Map_Dream_Sequence_2,
+    Map_Dream_Sequence_3
 };
 
 struct Npc_t
