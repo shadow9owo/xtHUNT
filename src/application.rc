@@ -9,14 +9,14 @@ BEGIN
     //BLOCK "080904E4"  // English UK
     BLOCK "040904E4"    // English US
     BEGIN
-      //VALUE "CompanyName", "raylib technologies"
-      VALUE "FileDescription", "A cool game made with raylib (www.raylib.com)"
-      VALUE "FileVersion", "1.0.0"
-      VALUE "InternalName", "cool game"
-      VALUE "LegalCopyright", "(c) 2025 YOUR NAME"
-      //VALUE "OriginalFilename", "raylib_app"
-      VALUE "ProductName", "A cool game"
-      VALUE "ProductVersion", "1.0.0"
+      //VALUE "CompanyName", "DoomGames"
+      VALUE "FileDescription", ""
+      VALUE "FileVersion", "0.0.1"
+      VALUE "InternalName", "XtHunt"
+      VALUE "LegalCopyright", "(c) 2025 DoomGames"
+      //VALUE "OriginalFilename", "XtHunt"
+      VALUE "ProductName", "A game."
+      VALUE "ProductVersion", "0.0.1"
     END
   END
   BLOCK "VarFileInfo"
