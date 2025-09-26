@@ -1,2 +1,0 @@
-/Users/kofi/Downloads/w64devkit/bin/ar.exe qc libIO.a CMakeFiles/IO.dir/IO.cpp.obj
-/Users/kofi/Downloads/w64devkit/bin/ranlib.exe libIO.a

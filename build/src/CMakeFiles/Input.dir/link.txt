@@ -1,2 +1,0 @@
-/Users/kofi/Downloads/w64devkit/bin/ar.exe qc libInput.a CMakeFiles/Input.dir/Input.cpp.obj
-/Users/kofi/Downloads/w64devkit/bin/ranlib.exe libInput.a

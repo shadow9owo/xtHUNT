@@ -1,2 +1,0 @@
-/Users/kofi/Downloads/w64devkit/bin/ar.exe qc libglobalvars.a CMakeFiles/globalvars.dir/globalvars.cpp.obj
-/Users/kofi/Downloads/w64devkit/bin/ranlib.exe libglobalvars.a

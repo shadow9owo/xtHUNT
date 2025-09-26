@@ -1,2 +1,0 @@
-/Users/kofi/Downloads/w64devkit/bin/ar.exe qc libNpc.a CMakeFiles/Npc.dir/Npc.cpp.obj
-/Users/kofi/Downloads/w64devkit/bin/ranlib.exe libNpc.a
