@@ -1,4 +1,4 @@
-![Logo](http://doomgames.cc/assets/misc/logo.webp)
+![Logo](http://doomgames.cc/assets/misc/logo.png)
 
 <a href="http://doomgames.cc">website</a>
 
