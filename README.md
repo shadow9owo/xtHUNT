@@ -5,7 +5,7 @@
 is an RPG game which also serves as a commentary on corruption 
 ## Authors
 
-- [@octokatherine](https://github.com/shadow9owo)
+- [@shadow9owo](https://github.com/shadow9owo)
 
 
 ## FAQ
